@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 /**
  * Class Controler
  * Gère les requêtes HTTP
@@ -37,23 +39,152 @@ class Controler
 				case 'boireBouteilleCellier':
 					$this->boireBouteilleCellier();
 					break;
+				
+				case 'login':
+					$this->login();
+					break;
+				case 'register':
+					$this->register();
+					break;
+
+				case 'cellier':
+					$this->cellier();
+					break;
+				case 'listecellier':
+					$this->listecellier();
+					break;
+				case 'ajouterCellier':
+					$this->ajouterCellier();
+					break;
+				
+				case 'deconnexion':
+					$this->deconnexion();
+					break;
+
+
 				default:
 					$this->accueil();
 					break;
 			}
 		}
 
+		private function login()
+		{
+				if (!empty($_POST)) {
+					$erreur = false;
+					$email = $_POST['email'];
+					$mdp = $_POST['mdp'];
+					$user = new Usager();
+					$usager = $user->unUsager($email);
+
+				if (!$usager || !password_verify($mdp, $usager[0]['mdp'])) {
+		
+						$erreur = "Combinaison courriel/mot de passe erronée";
+						var_dump($erreur);
+					
+					}
+		
+					if (!$erreur) {
+						$_SESSION['usager'] = $usager;
+						header("Location: http://localhost:8080/vino_etu/");
+						exit(); 
+					}
+				}
+			
+			include("vues/entete.php");
+			include("vues/login.php");
+			include("vues/pied.php");
+		}
+
+		public function deconnexion()
+		{
+			unset($_SESSION['usager']);
+			include("vues/entete.php");
+			include("vues/accueil.php");
+			include("vues/pied.php");
+		}
+
+
+		private function register()
+		{
+			if (!empty($_POST)) {
+				$user = new Usager();
+				$user->addUtilisateur($_POST);
+				 header("Location: http://localhost:8080/vino_etu/?requete=login");
+				exit();
+			}
+			include("vues/entete.php");
+			include("vues/register.php");
+			include("vues/pied.php");
+                  
+		}
+
 		private function accueil()
+		{
+			include("vues/entete.php");
+			include("vues/accueil.php");
+			include("vues/pied.php");
+                  
+		}
+		
+		private function cellier()
 		{
 			$bte = new Bouteille();
             $data = $bte->getListeBouteilleCellier();
+			 //var_dump($data);
 			include("vues/entete.php");
 			include("vues/cellier.php");
 			include("vues/pied.php");
                   
 		}
-		
+		private function listecellier()
+		{
+			/* $bte = new Bouteille();
+            $data = $bte->getListeBouteilleCellier(); */
+			include("vues/entete.php");
+			include("vues/listecellier.php");
+			include("vues/pied.php");
+                  
+		}
+		private function ajouterCellier()
+		{
+			/*
+			if (!empty($_POST)) {
+				$user = new Usager();
+				$user->addUtilisateur($_POST);
+				 header("Location: http://localhost:8080/vino_etu/?requete=login");
+				exit();
+			}
+			*/
+			/*
+			$body = json_decode(file_get_contents('php://input'));
+			var_dump($body);
+			if(!empty($body)){
+				$celier = new Cellier();
+				$resultat = $celier->ajouterCellier($body);
+				echo json_encode($resultat);
+			}
+			*/
+			if (!empty($_POST)) {
+				$celier = new Cellier();
+				$celier->ajouterCellier($_POST);
+			}
+			else
+			{
+				include("vues/entete.php");
+				include("vues/ajoutcellier.php");
+				include("vues/pied.php");
+			}
 
+			/*
+			$celier = new Cellier();
+            $data = $celier->getListeCelliers();
+			include("vues/entete.php");
+			include("vues/listecellier.php");
+			include("vues/pied.php");
+			*/
+                  
+		}
 		private function listeBouteille()
 		{
 			$bte = new Bouteille();
@@ -80,9 +211,6 @@ class Controler
 			//var_dump($body);
 			if(!empty($body)){
 				$bte = new Bouteille();
-				//var_dump($_POST['data']);
-				
-				//var_dump($data);
 				$resultat = $bte->ajouterBouteilleCellier($body);
 				echo json_encode($resultat);
 			}
@@ -91,8 +219,6 @@ class Controler
 				include("vues/ajouter.php");
 				include("vues/pied.php");
 			}
-			
-            
 		}
 		
 		private function boireBouteilleCellier()
@@ -114,19 +240,3 @@ class Controler
 		}
 		
 }
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
