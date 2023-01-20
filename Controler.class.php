@@ -16,7 +16,7 @@ session_start();
 class Controler 
 {
 	
-	const URL_LOCATION = "http://localhost/vino_etu_renaud_v1";
+	const URL_LOCATION = "http://localhost/vino_etu";
 
 		/**
 		 * Traite la requête
