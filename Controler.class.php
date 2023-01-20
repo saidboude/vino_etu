@@ -16,6 +16,8 @@ session_start();
 class Controler 
 {
 	
+	const URL_LOCATION = "http://localhost/vino_etu_renaud_v1";
+
 		/**
 		 * Traite la requête
 		 * @return void
@@ -51,7 +53,7 @@ class Controler
 					$this->cellier();
 					break;
 				case 'listecellier':
-					$this->listecellier();
+					$this->getListeCelliers();
 					break;
 				case 'ajouterCellier':
 					$this->ajouterCellier();
@@ -86,7 +88,7 @@ class Controler
 		
 					if (!$erreur) {
 						$_SESSION['usager'] = $usager;
-						header("Location: http://localhost:8080/vino_etu/");
+						header("Location: ".self::URL_LOCATION);
 						exit(); 
 					}
 				}
@@ -104,13 +106,12 @@ class Controler
 			include("vues/pied.php");
 		}
 
-
 		private function register()
 		{
 			if (!empty($_POST)) {
 				$user = new Usager();
 				$user->addUtilisateur($_POST);
-				 header("Location: http://localhost:8080/vino_etu/?requete=login");
+				 header("Location: ".self::URL_LOCATION."/?requete=login");
 				exit();
 			}
 			include("vues/entete.php");
@@ -137,54 +138,38 @@ class Controler
 			include("vues/pied.php");
                   
 		}
-		private function listecellier()
+
+		private function getListeCelliers()
 		{
-			/* $bte = new Bouteille();
-            $data = $bte->getListeBouteilleCellier(); */
+			// TODO :  Hard coded
+			$id_usager = 3;
+			$celier = new Cellier();
+            $data = $celier->getListeCelliers($id_usager);
+
+            //echo json_encode($data);
+
 			include("vues/entete.php");
 			include("vues/listecellier.php");
 			include("vues/pied.php");
-                  
 		}
+		
 		private function ajouterCellier()
 		{
-			/*
-			if (!empty($_POST)) {
-				$user = new Usager();
-				$user->addUtilisateur($_POST);
-				 header("Location: http://localhost:8080/vino_etu/?requete=login");
-				exit();
-			}
-			*/
-			/*
-			$body = json_decode(file_get_contents('php://input'));
-			var_dump($body);
-			if(!empty($body)){
-				$celier = new Cellier();
-				$resultat = $celier->ajouterCellier($body);
-				echo json_encode($resultat);
-			}
-			*/
 			if (!empty($_POST)) {
 				$celier = new Cellier();
 				$celier->ajouterCellier($_POST);
+
+				// Afficher liste des celliers
+				header("Location: ".self::URL_LOCATION."/?requete=listecellier");
 			}
 			else
 			{
-				include("vues/entete.php");
-				include("vues/ajoutcellier.php");
-				include("vues/pied.php");
-			}
-
-			/*
-			$celier = new Cellier();
-            $data = $celier->getListeCelliers();
 			include("vues/entete.php");
-			include("vues/listecellier.php");
+			include("vues/ajoutcellier.php");
 			include("vues/pied.php");
-			*/
-                  
+			}
 		}
+		
 		private function listeBouteille()
 		{
 			$bte = new Bouteille();
@@ -205,6 +190,7 @@ class Controler
             echo json_encode($listeBouteille);
                   
 		}
+
 		private function ajouterNouvelleBouteilleCellier()
 		{
 			$body = json_decode(file_get_contents('php://input'));

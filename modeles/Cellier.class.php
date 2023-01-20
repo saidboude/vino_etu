@@ -16,11 +16,10 @@ class Cellier extends Modele {
     /**
      * Obtenir la liste des celliers
      */
-	public function getListeCelliers()
+	public function getListeCelliers($id_usager)
 	{
-		
 		$rows = Array();
-		$res = $this->_db->query('Select * from '. self::TABLE);
+		$res = $this->_db->query('Select * from '. self::TABLE. ' where id_usager = '.$id_usager);
 		if($res->num_rows)
 		{
 			while($row = $res->fetch_assoc())
@@ -47,7 +46,7 @@ class Cellier extends Modele {
 		
 		$requete = "INSERT INTO vino__cellier(nom, lieu, id_usager) VALUES (".
 		"'".$data['nom']."',".
-		"'".$data['lieu']."', 2)";
+		"'".$data['lieu']."', 3)"; // Hard coded id_uager
 
         $res = $this->_db->query($requete);
 		return $res;
