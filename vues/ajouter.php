@@ -4,32 +4,27 @@
 
     <div class="nouvelleBouteille" vertical layout>
 
-    <div class="form-style-8" style="padding-top: 0;">
-        <input type="text" name="nom_bouteille" placeholder="Recherche une bouteile" />
-        </div>
-        <div class="listeAutoComplete">
+        Recherche : <input type="text" name="nom_bouteille">
+        <ul class="listeAutoComplete">
 
-        </div>
-<!--         <div>
+        </ul>
+        <div>
+            <!-- <p>Nom : <span data-id="" class="nom_bouteille"></span> <input name="nom"> </p> -->
             <p>Nom : <span data-id="" class="nom_bouteille"></span></p>
-            <p>Millesime : <input name="millesime"></p>
+            <p>Millesime : <input name="millesime" placeholder="aaaa"></p>
             <p>Quantite : <input name="quantite" value="1"></p>
-            <p>Date achat : <input name="date_achat"></p>
-            <p>Prix : <input name="prix"></p>
-            <p>Garde : <input name="garde_jusqua"></p>
+            <p>Date achat : <input name="date_achat" placeholder="aaaa-mm-jj"></p>
+            <p>Prix : <input name="prix" placeholder="00.00"></p>
+            <p>Garde : <input name="garde_jusqua" placeholder="aaaa-mm-jj ou non" ></p>
+            Choisir le Cellier
+            <select id="id_cellier">
+                <option value="">Choisir le cellier</option>
+                <option value="1">Chalet</option>
+                <option value="2">Maison</option>
+                <!-- Passer ces données à cette vue -->
+            </select>            
             <p>Notes <input name="notes"></p>
-        </div> -->
-
-        <div class="form-style-8" style="padding-top: 0;">
-        <p>Nom : <span data-id="" class="nom_bouteille"></span></p>
-                <input type="text" name="millesime" placeholder="Millesime" />
-                <input type="text" name="quantite" placeholder="Quantite" />
-                <input type="text" name="date_achat" placeholder="Date d'achat" />
-                <input type="text" name="prix" placeholder="Prix"/>
-                <input type="text" name="garde_jusqua" placeholder="Garde jusqu'a"/>
-                <input type="text" name="notes" placeholder="Notes" />
-                
-                <input type="button" name="ajouterBouteilleCellier" value="Ajouter la bouteille" />
         </div>
+        <button name="ajouterBouteilleCellier" style="margin-bottom: 100px;">Ajouter la bouteille (champs tous obligatoires)</button>
     </div>
 </div>

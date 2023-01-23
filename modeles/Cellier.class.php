@@ -44,9 +44,13 @@ class Cellier extends Modele {
 		//TODO : Valider les données.
 		//var_dump($data);	
 		
-		$requete = "INSERT INTO vino__cellier(nom, lieu, id_usager) VALUES (".
+		/**$requete = "INSERT INTO vino__cellier(nom, lieu, id_usager) VALUES (".
 		"'".$data['nom']."',".
-		"'".$data['lieu']."', 3)"; // Hard coded id_uager
+		"'".$data['lieu']."', . $_SESSION['usager'][0]['id'])"; // Hard coded id_uager**/
+		//var_dump($_SESSION['usager'][0]['id']);
+		$requete ="INSERT INTO vino__cellier(nom, lieu, id_usager) 
+		VALUES ('".$data['nom']."', '".$data['lieu']."', ".$_SESSION['usager'][0]['id'].")";
+
 
         $res = $this->_db->query($requete);
 		return $res;

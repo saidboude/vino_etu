@@ -25,13 +25,20 @@ class Controler
 		public function gerer()
 		{
 			
+			if(isset($_GET['id'])) 
+				$id = $_GET['id'];
+			
+			// Hard code id
+			$id = 1;
 			switch ($_GET['requete']) {
+
 				case 'listeBouteille':
 					$this->listeBouteille();
 					break;
 				case 'autocompleteBouteille':
 					$this->autocompleteBouteille();
 					break;
+					// Bouteille du SAQ
 				case 'ajouterNouvelleBouteilleCellier':
 					$this->ajouterNouvelleBouteilleCellier();
 					break;
@@ -49,11 +56,20 @@ class Controler
 					$this->register();
 					break;
 
+				// Yordan
+				case "getBouteille":
+					$this->getBouteille($id);
+					break;
+				case "modifierBouteilleCellier":
+					$this->modifierBouteilleCellier();
+					break;	
+
+				// Said
 				case 'cellier':
 					$this->cellier();
 					break;
 				case 'listecellier':
-					$this->getListeCelliers();
+					$this->listeCelliers();
 					break;
 				case 'ajouterCellier':
 					$this->ajouterCellier();
@@ -62,7 +78,6 @@ class Controler
 				case 'deconnexion':
 					$this->deconnexion();
 					break;
-
 
 				default:
 					$this->accueil();
@@ -128,6 +143,36 @@ class Controler
                   
 		}
 		
+		/** Formulaire de modification */ 
+		private function getBouteille($id)
+		{
+			$bte = new Bouteille();
+			$data = $bte->getBouteilleCellier($id);
+			include("vues/entete.php");
+			include("vues/modifier.php");
+			include("vues/pied.php");
+			//echo json_encode($data);
+			//echo $data["prix"];
+		}
+
+		private function modifierBouteilleCellier()
+		{
+			$body = json_decode(file_get_contents('php://input'));
+			if(!empty($body)){
+				$bte = new Bouteille();
+				$resultat = $bte->modifierBouteilleCellier($body);			
+				echo json_encode($resultat);
+				header("Location: ".self::URL_LOCATION."/?requete=profil");
+				exit();
+			}
+			else {
+				include("vues/entete.php");
+				include("vues/modifier.php");
+				include("vues/pied.php");
+			}
+			
+		}
+
 		private function cellier()
 		{
 			$bte = new Bouteille();
@@ -139,10 +184,11 @@ class Controler
                   
 		}
 
-		private function getListeCelliers()
+		private function listeCelliers()
 		{
-			// TODO :  Hard coded
-			$id_usager = 3;
+            // TODO :  Hard coded
+			/*$id_usager = 3;*/
+			$id_usager = $_SESSION['usager'][0]['id'];
 			$celier = new Cellier();
             $data = $celier->getListeCelliers($id_usager);
 

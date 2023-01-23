@@ -1,10 +1,10 @@
-<div class="cellier">
+<!--<div class="cellier">-->
 
 <!--
 <p><a href="?requete=">Ajouter un nouveau cellier</a></p>
 -->
 
-<h3><a href="?requete=ajouterCellier" class="btnlogin button-28">Ajouter un nouveau cellier</a></h3>';
+<h3><a href="?requete=ajouterCellier" class="btnlogin button-28">Ajouter un nouveau cellier</a></h3>
 
 
 <!--
@@ -22,12 +22,14 @@ foreach ($data as $cle => $cellier) {
     <p class="id">Id : <?php echo $cellier['id'] ?></p>
     <p class="nom">Nom : <?php echo $cellier['nom'] ?></p>
     <p class="quantite">Lieu : <?php echo $cellier['lieu'] ?></p>
+    <h3><a href="?requete=cellier" class="btnlogin button-18">Accéder a votre cellier</a></h3>
+
     </div>
 
 <?php
 }
 ?>	
 
-</div>
+<!--</div>-->
 <br>
     

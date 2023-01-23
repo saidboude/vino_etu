@@ -1,11 +1,11 @@
 <div class="cellier">
 
-<h1>Celliers --Nom--</h1>
-<a href="?requete=ajouterNouvelleBouteilleCellier">Ajouter une bouteille au cellier</a>
+<h1>Votre Cellier</h1>
     
 <?php
+
 foreach ($data as $cle => $bouteille) {
- 
+    
     ?>
     <div class="bouteille" data-quantite="">
         <div class="img">
@@ -20,11 +20,10 @@ foreach ($data as $cle => $bouteille) {
             <p class="millesime">Millesime : <?php echo $bouteille['millesime'] ?></p>
             <p><a href="<?php echo $bouteille['url_saq'] ?>">Voir SAQ</a></p>
         </div>
-        <div class="options" data-id="<?php echo $bouteille['id_bouteille_cellier'] ?>">
-            <button>Modifier</button>
+        <div class="options" data-id="<?php echo $bouteille['id_bouteille_saq'] ?>">
+            <button class="btnModifier">Modifier</button></a><!-- <a href="?requete=modifier" data-id="">  -->
             <button class='btnAjouter'>Ajouter</button>
-            <button class='btnBoire'>Boire</button>
-            
+            <button class='btnBoire'>Boire</button>            
         </div>
     </div>
 <?php
