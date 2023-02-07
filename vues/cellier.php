@@ -44,7 +44,7 @@ foreach ($dataprive as $cle => $bouteille) {
             <button class='btnAjouter'>Ajouter</button>
             <button class='btnBoire'>Boire</button>  
 
-            <form action="?requete=deleteprive" method="post">
+            <form action="?requete=deleteprive&id=<?= $bouteille['nom'] ?>" method="post">
                 <input type="hidden" name="id" value="<?php echo $bouteille['id'] ?>" />
                 <input type="submit" value="Supprimer" />
             </form>
