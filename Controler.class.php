@@ -195,10 +195,10 @@ class Controler
 			$id_cellier = $_GET['id'];
 			$cellier = new Cellier();
 			$datacell = $cellier->getcellier($id_cellier);
+		}
 		include("vues/entete.php");
 		include("vues/cellier.php");
 		include("vues/pied.php");
-		}
 	}
 
 	private function deleteSAQ()
