@@ -129,12 +129,14 @@ form label {  /* background-color: aqua;  */
 	border-radius: 100px;
 	color: white;
 	cursor: pointer;
-	display: inline-block;
+	/*display: inline-block;*/
 	font-size: 16px;
 	outline: none;
-	padding: 16px 60px;
+	padding: 8px 40px;
 	text-decoration: none;
 	transition: all 0.5s cubic-bezier(.23, 1, 0.32, 1);
+	margin: 0 auto;
+	display: block;
   }
 
 
@@ -144,6 +146,7 @@ form label {  /* background-color: aqua;  */
 	text-decoration: none;
 	box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 	transform: translateY(-2px);
+
   }
 
 /* FormStyle */
@@ -154,14 +157,16 @@ form label {  /* background-color: aqua;  */
 	padding-top: 100px;
 }
 .form-style-8 h2{
-	background: black;
+	/*background: black;*/
 	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
 	font-family: 'Open Sans Condensed', sans-serif;
-	color: white;
-	font-size: 18px;
+	color: black;
+	font-size: 30px;
 	font-weight: 100;
-	padding: 20px;
-	margin: -30px -30px 30px -30px;
+	padding: 10px;
+	margin: -15px -15px 15px -15px;
 }
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
@@ -185,7 +190,7 @@ form label {  /* background-color: aqua;  */
 	border: none;
 	border-bottom: 1px solid #ddd;
 	background: transparent;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 }
@@ -200,12 +205,14 @@ form label {  /* background-color: aqua;  */
 	box-shadow: inset 0px 1px 0px 0px #73162F;
 	background-color: #73162F;
 	border: 1px solid #73162F;
-	display: inline-block;
+	/*display: inline-block;*/
+	display: block;
+	margin: 0 auto;
 	cursor: pointer;
 	color: #FFFFFF;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 14px;
-	padding: 16px 60px;
+	padding: 8px 40px;
 	text-decoration: none;
 	text-transform: uppercase;
 	border-radius: 100px;
@@ -283,7 +290,7 @@ form label {  /* background-color: aqua;  */
 
   .flexCellier {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap-reverse;
 	justify-content: space-between;
 	margin: 40px;
 	}
@@ -399,7 +406,7 @@ form label {  /* background-color: aqua;  */
 
 		}
 		/*================== Icone page d'accueil Connexion et s'inscrire==========================*/
-		
+
 		.flexConnCreer{
 			display: flex;
 			align-items: center;
