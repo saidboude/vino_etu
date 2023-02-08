@@ -320,6 +320,7 @@ form label {  /* background-color: aqua;  */
 	}
 	
 	@media (max-width:768px) {
+
 		.flexCellier .card {
 		/*flex: 1 0 90%;*/
 		flex: 1 0 calc(50% - 20px);
@@ -328,6 +329,8 @@ form label {  /* background-color: aqua;  */
 
 		.flexCellier {
 			justify-content: center;
+			margin-left: 10px;
+    		margin-right: 10px;
 		}
 
 		.dropdown {
