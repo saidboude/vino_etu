@@ -466,19 +466,16 @@ window.addEventListener('load', function () {
 
     });
 
+    /**Listenner pour le form ajoutPrive */
     let currentRequete = window.location.search.substring(window.location.pathname.lastIndexOf('/'));
     if (currentRequete.includes("ajouterNouvelleBouteilleCellierPrive") == true) {
-      console.log(window.location.search);//== 'requete' .substring(window.location.pathname.lastIndexOf('/'))
+      console.log(window.location.search);
       console.log(currentRequete.includes("ajouterNouvelleBouteilleCellierPrive"));
-      /**Listenner pour le form ajoutPrive */
-      //document.querySelectorAll("#ajoutPrive").forEach(function(e){})
-            
+      
       let btn = this.document.querySelector("#ajoutPrive"); // [data-js-submit]      
       let form = document.getElementById("ajouterPrive");  // '[data-name="form"]'    
       btn.addEventListener("click", function (evt) { 
         evt.preventDefault(); 
-        console.log("hola");               
-      
         console.log(formValidator());      
         let bool = formValidator();
         console.log(bool);      
@@ -489,6 +486,8 @@ window.addEventListener('load', function () {
        /**
      * Methode de validation du form d'ajout privé
      * @return bool
+     * @author Yordan 
+     * 
     */
     function formValidator() {       
       let nomRex = /^([0-9a-zA-Z\_&':]+\s?){1,6}$/i,      
@@ -553,11 +552,10 @@ window.addEventListener('load', function () {
       console.log("submit");      
       return true;      
     }    
-    }   
-    
-     
-    if (currentRequete.includes("profilmod") == true) {
-        /**Listenner pour modif profil */
+    } 
+        
+    /**Validation de modif profil */
+    if (currentRequete.includes("profilmod") == true) {        
       let btnModProfil = document.querySelector("[name='btnModProfil']"),
           formModProfil= document.querySelector('#modProfilForm');
       //console.log(formModProfil[0]);
@@ -569,8 +567,11 @@ window.addEventListener('load', function () {
           formModProfil.submit();
         }
       });
+
+      //
       /**Methode de validation du form modification du profil
      * @return bool
+     * @author Yordan 
      */
     function formModProfilVal() { 
       let nomRex = /^([0-9a-zA-Z\_&':]+\s?){1,3}$/i,
@@ -586,6 +587,40 @@ window.addEventListener('load', function () {
     }
     }
 
+    /*Validation du formulaire ajout de cellier*/
+    if (currentRequete.includes("ajoutercellier")) {      
+      formAjoutCellier = this.document.getElementById("formAjoutCellier");
+      
+      formAjoutCellier[2].addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log(formAjoutCellier.length);
+        let boolean = valAjoutCellier();
+        if (boolean) {
+          formAjoutCellier.submit();
+        }
+      });
+
+      /**
+       * Methode de validation d'ajout cellier
+       * @returns boolean
+       * @author Yordan 
+       * 
+       */
+      function valAjoutCellier() {
+        let nomLieuRex = /^([0-9a-zA-Z\_&':`èûüêÉ;ïîë-]+\s?){1,6}$/i;
+        for (let i = 0; i < formAjoutCellier.length - 1; i++) {          
+          if (nomLieuRex.test(formAjoutCellier[i].value) == false) {
+            //let value = deburr(formAjoutCellier[i].value);
+            //console.log(value);
+            document.getElementById(i).textContent = "Veuillez remplir ce champ";
+            return false;
+          } 
+          document.getElementById(i).textContent = "";
+        }          
+          console.log("ajouter");
+          return true;        
+      }
+    }    
 
     // SAID ..
     /**
