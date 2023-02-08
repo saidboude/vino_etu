@@ -15,7 +15,7 @@
             <span id="nom" class="error-message"></span>
             <input type="text" name="nom" placeholder="Nom" />
             <span id="millesime" class="error-message"></span>            
-            <input  type="number" name="millesime" placeholder="2000" />
+            <input  type="number" name="millesime" placeholder="Entrez une année" />
             <span id="quantite" class="error-message"></span>
             <input type="number" name="quantite" placeholder="Quantite" min="0" value="1"/>
             <span id="prix_achat" class="error-message"></span>

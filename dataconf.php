@@ -15,5 +15,6 @@
 	/* define('HOST', 'localhost');
 	define('USER', 'id20171121_root');
 	define('PASSWORD', 'T$2=~NU#_g76>nKu');
+	define('DATABASE', 'id20171121_vinodb');  
 	define('DATABASE', 'id20171121_vinodb');  */
 ?>

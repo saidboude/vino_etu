@@ -207,21 +207,6 @@ window.addEventListener('load', function () {
           "quantite":bouteille.quantite.value,
           "millesime":bouteille.millesime.value,
         };
-
-
-    /*     var param = {
-          "nom": bouteille.nom.value,
-          "id_bouteille": bouteille.nom.dataset.id,
-          "id_cellier": bouteille.id_cellier.value,
-          "date_achat": bouteille.date_achat.value,
-          "garde_jusqua": bouteille.garde_jusqua.value,
-          "notes": bouteille.date_achat.value,
-          "prix_saq": bouteille.prix_saq.value,
-          "quantite": bouteille.quantite.value,
-          "millesime": bouteille.millesime.value,
-          "pays": bouteille.pays.value,
-          "id_type": bouteille.id_type.value,
-        }; */
         
         // Said :    
         // Validation des champs
@@ -314,22 +299,22 @@ window.addEventListener('load', function () {
         /**Validation des champs de modif des bouteille privé */
         console.log(bouteille.quantite.value);
         function formValModPrive() {
-          let prixRex = /^\d+.\d{1,2}$/,
-              nomRex = /^([0-9a-zA-Z\_&':]+\s?){1,6}$/i,
+          let prixRex = /^(\d+)(.\d{1,2})?$/,
+              nomRex = /^([0-9a-zA-Z\_&':`èûüêÉ;ïîë-]+\s?){1,6}$/i,
               notesRex = /^10|[1-9]$/,
               paysRex = /([a-z\']+\s?){1,6}$/i,
-              quantiteRex = /^[1-9]{0,4}$/i,
+              quantiteRex = /^[0-9]{0,4}$/i,
               garde_jusquaRex = /^\d{4}|[a-z]{2,4}$/i,
               millesimeRex = /(^[1|2]\d{3}$)/;
               console.log(bouteille.nom.value.trim().replace(/\s+/g, ' '));
           if (nomRex.test(bouteille.nom.value.trim().replace(/\s+/g, ' ')) == false) {
-            document.getElementById("nom").textContent = "Veuillez remplir ce champ";
+            document.getElementById("nom").textContent = "Veuillez entrer un nom";
             return false;
           } else {
             document.getElementById("nom").textContent = "";
           }           
           if (millesimeRex.test(bouteille.millesime.value.trim()) == false) {
-            document.getElementById("millesime").textContent = "Veuillez remplir ce champ";
+            document.getElementById("millesime").textContent = "Veuillez entrer une année";
             return false;
           } else {
             document.getElementById("millesime").textContent = "";
@@ -341,32 +326,32 @@ window.addEventListener('load', function () {
             document.getElementById("quantite").textContent = "";
           } 
           if (bouteille.date_achat.value == "") {
-            document.getElementById("date_achat").textContent = "Champ obligatoire";            
+            document.getElementById("date_achat").textContent = "Veuillez entrer une date d'achat";            
             return false;
           } else {
             document.getElementById("date_achat").textContent = "";
           }
           if (garde_jusquaRex.test(bouteille.garde_jusqua.value) == false) {
-            document.getElementById("garde_jusqua").textContent = "Champ obligatoire";
+            document.getElementById("garde_jusqua").textContent = "Besoin de garder jusqua?";
             return false;
           } else {
             document.getElementById("garde_jusqua").textContent = "";
           }
           if (prixRex.test(bouteille.prix_achat.value) == false) {
-            document.getElementById("prix_achat").textContent = "Champ obligatoire";
+            document.getElementById("prix_achat").textContent = "Veuillez entrer un prix d'achat";
             return false;
           } else {
             document.getElementById("prix_achat").textContent = "";
           } 
           if (notesRex.test(bouteille.notes.value) == false) {
-            document.getElementById("notes").textContent = "Champ obligatoire";
+            document.getElementById("notes").textContent = "Veuillez entrer une note sur 10";
             return false;
           } else {
             document.getElementById("notes").textContent = "";
           }
           console.log(paysRex.test(bouteille.pays.value.trim().replace(/\s+/g, ' ')));
           if (paysRex.test(bouteille.pays.value.trim().replace(/\s+/g, ' ')) == false || bouteille.pays.value.trim().replace(/\s+/g, '') == "") {
-            document.getElementById("pays").textContent = "Champ obligatoire";
+            document.getElementById("pays").textContent = "Veuillez entrer un pays";
             return false;
           } else {
             document.getElementById("pays").textContent = "";
@@ -490,7 +475,7 @@ window.addEventListener('load', function () {
      * 
     */
     function formValidator() {       
-      let nomRex = /^([0-9a-zA-Z\_&':]+\s?){1,6}$/i,      
+      let nomRex = /^([0-9a-zA-Z\_&':`èûüêÉ;ïîë-]+\s?){1,6}$/i,      
           nom = document.querySelector("[name='nom']").value.trim().replace(/\s+/g, ' '),
           millesimeRex = /(^[1|2]\d{3}$)/, 
           millesime = millesimeRex.test(form[2].value),
@@ -506,19 +491,19 @@ window.addEventListener('load', function () {
         console.log(nomRex.test(form[1].value));
 
       if (nomRex.test(nom) == false) {
-        document.getElementById("nom").textContent = "Veuillez remplir ce champ";        
+        document.getElementById("nom").textContent = "Veuillez entrer un nom";        
         return false;
       } else {
         document.getElementById("nom").textContent = "";
       } 
       if (millesime == false) {
-        document.getElementById("millesime").textContent = "Champ obligatoire";        
+        document.getElementById("millesime").textContent = "Veuillez entrer une année";        
         return false;
       } else {
         document.getElementById("millesime").textContent = "";
       } 
       if (quantite < 1) {
-        document.getElementById("quantite").textContent = "Veuillez entrer un chiffre";
+        document.getElementById("quantite").textContent = "Veuillez entrer une quantité";
         formValid = false;
 
         return false;
@@ -526,25 +511,25 @@ window.addEventListener('load', function () {
         document.getElementById("quantite").textContent = "";
       } 
       if (prixRex.test(prix_achat) == false) {
-        document.getElementById("prix_achat").textContent = "Champ obligatoire";
+        document.getElementById("prix_achat").textContent = "Veuillez entrer un prix d'achat";
         return false;
       } else {
         document.getElementById("prix_achat").textContent = "";
       } 
       if (paysRex.test(pays) == false) {
-        document.getElementById("pays").textContent = "Champ obligatoire";
+        document.getElementById("pays").textContent = "Veuillez entrer un pays";
         return false;
       } else {
         document.getElementById("pays").textContent = "";
       } 
       if (date_achat == "") {
-        document.getElementById("date_achat").textContent = "Champ obligatoire";
+        document.getElementById("date_achat").textContent = "Veuillez entrer une date d'achat";
         return false;
       } else {
         document.getElementById("date_achat").textContent = "";
       }
       if (garde_jusquaRex.test(garde_jusqua) == false) {
-        document.getElementById("garde_jusqua").textContent = "Champ obligatoire";
+        document.getElementById("garde_jusqua").textContent = "Besoin de garder jusqua?";
         return false;
       } else {
         document.getElementById("garde_jusqua").textContent = "";
