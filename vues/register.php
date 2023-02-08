@@ -16,7 +16,7 @@
     <input type="text" name="nom" placeholder="Nom" />
     <input type="email" name="email" placeholder="Email" />
     <input type="password" name="mdp" placeholder="Mot de passe" />
-    <button type="submit" class="top button-28">Créé</button>
+    <button type="submit" class="top button-28">S'inscrire</button>
   </form>
 </div>
 
