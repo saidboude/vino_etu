@@ -9,9 +9,9 @@
  */
 
 
-const BaseURL = "https://vino-etu.000webhostapp.com/";
+//const BaseURL = "https://vino-etu.000webhostapp.com/";
 //const BaseURL = "http://localhost:8080/vino_etu/";
-//const BaseURL = "http://localhost/vino_etu/";
+const BaseURL = "http://localhost/vino_etu/";
 
 
 //import Validation from "./validation.js";
@@ -335,7 +335,7 @@ window.addEventListener('load', function () {
             document.getElementById("millesime").textContent = "";
           } 
           if (quantiteRex.test(bouteille.quantite.value.trim()) == false) {
-            document.getElementById("quantite").textContent = "Veuillez entrer une chifre";
+            document.getElementById("quantite").textContent = "Veuillez entrer un chiffre";
             return false;
           } else {
             document.getElementById("quantite").textContent = "";
