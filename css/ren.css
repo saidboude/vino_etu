@@ -484,3 +484,39 @@ form label {  /* background-color: aqua;  */
 			margin: 0 auto;
 			height: 100%;
 		}
+
+		/*================== Icone ajout Bouteille Privé et SAQ ==========================*/
+
+
+		.sectionIconeBouteille {
+			display: flex;
+			align-items: center;
+			justify-content:space-between;
+			margin-top: 30px;
+			
+
+		}
+
+		.sectionIconeBouteille h1 {
+			margin-left: 150px;
+			font-size: 40px;
+			width: 50%;
+			text-align: left;
+		}
+
+		
+		.iconeBP{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 250px;
+
+		} 
+		
+		.iconeBP img{
+			
+			width: 80px;
+			margin: 0 auto;
+			height: 100%;
+			
+		}
