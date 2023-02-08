@@ -13,10 +13,11 @@
                     <h3><a href="?requete=ajouterNouvelleBouteilleCellier&id=<?= $datacell[0]['id']?>"><img src="/vino_etu/img/IconeBS.png"></a></h3>      
                 </div>
         </div>
-
+<div class="flexCellier">
 <?php
 foreach ($dataprive as $cle => $bouteille) {    
     ?>
+
     <div class="bouteille cardcellier">
         <h2>Bouteille Privé</h2>
         <div class="img"> 
@@ -41,8 +42,9 @@ foreach ($dataprive as $cle => $bouteille) {
             <p class="millesime">Millesime : <?php echo $bouteille['millesime'] ?></p>
         </div>
         <div class="options" data-id="<?php echo $bouteille['id'] ?>">
+        
             <!-- <button>Modifier</button> -->
-            <button class="btnModifier">Modifier</button>
+            <button class="btnModifier"><img src="iconeMd.png" alt="icone Md"></button>
             <button class='btnAjouter'>Ajouter</button>
             <button class='btnBoire'>Boire</button>  
 
@@ -87,6 +89,7 @@ foreach ($data as $cle => $bouteille) {
             <p><a href="<?php echo $bouteille['url_saq'] ?>">Voir SAQ</a></p>
         </div>
         <div class="options" data-id="<?php echo $bouteille['vbsid'] ?>">
+      
             <button class="btnModifiersaq">Modifier</button>
             <button class='btnAjoutersaq'>Ajouter</button>
             <button class='btnBoiresaq'>Boire</button>
@@ -94,12 +97,13 @@ foreach ($data as $cle => $bouteille) {
                 <input type="hidden" name="id" value="<?php echo $bouteille['id_bouteille'] ?>" />
                 <input type="submit" value="Supprimer" />
             </form>
+     
         </div>
     </div>
 <?php
 }
 ?>	
-
+</div>
 </div>
 <?php
 }else{
