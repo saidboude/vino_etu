@@ -3,15 +3,15 @@
 ?>
 
 <div class="ajouter">
+    <div class="form-style-8" style="padding-top: 50px;">
 
-<h2>Ajout d'une bouteille de la SAQ au cellier</h2>
-
+            <h2>Ajout d'une bouteille de la SAQ au cellier</h2>
     <div class="nouvelleBouteille" vertical layout>
         Recherche : <input type="text" name="nom_bouteille">
         <ul class="listeAutoComplete">
 
         </ul>
-            <div >
+            <div class="form-style-8" style="padding-top: 0;">
                 <span id="nom_bouteille" class="error-message"></span>    
                 <p>Nom : <span data-id="" class="nom_bouteille"></span></p>
                 <span id="millesime" class="error-message"></span>
@@ -31,7 +31,8 @@
                     ?>
             </select>
             </div>
-            <button name="ajouterBouteilleCellier">Ajouter la bouteille</button>
+            <!--<button name="ajouterBouteilleCellier">Ajouter la bouteille</button>-->
+            <input type="button" name="ajouterBouteilleCellier" value="Ajouter la bouteille" />
         </div>
     </div>
 </div>
