@@ -290,14 +290,18 @@ form label {  /* background-color: aqua;  */
 
   .flexCellier {
 	display: flex;
-	flex-wrap: wrap-reverse;
-	justify-content: space-between;
-	margin: 40px;
+	flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 30px;
+	padding: 20px;
+	margin-left: 80px;
+	margin-right: 20px; 
 	}
 	
 	.flexCellier .card {
 	flex: 1 0 calc(25% - 20px);
-	margin: 10px;
+	margin: 30px;
 	}
 
 	
@@ -305,19 +309,20 @@ form label {  /* background-color: aqua;  */
 		background-color: rgb(214, 214, 202);
 		padding: 10px;
 		border-radius: 15px;
-		max-width: 300px;
+		max-width: 240px;
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	}
 	.card img{
-		width: 300px;
-		height: 110px;
+		width: 240px;
+		/*height: 110px;*/
 		object-fit: cover;
 		border-radius: 15px;
 	}
 	
 	@media (max-width:768px) {
 		.flexCellier .card {
-		flex: 1 0 90%;
+		/*flex: 1 0 90%;*/
+		flex: 1 0 calc(50% - 20px);
 
 		}
 
@@ -372,7 +377,9 @@ form label {  /* background-color: aqua;  */
 		}
 
 		.nom{
-			/* text-transform: uppercase; */
+			text-transform: uppercase;
+			text-align: center;
+			margin: 20px 10px 0.5px 10px;
 		}
 
 		.lieu{
@@ -443,3 +450,34 @@ form label {  /* background-color: aqua;  */
 			
 		}
 		
+		/*================== Icone ajout Cellier==========================*/
+		
+		.sectionIcone{
+			display: flex;
+			align-items: center;
+			justify-content:space-between; 
+			margin-top: 30px;
+			
+		}
+
+		.sectionIcone h1{
+			margin-left: 120px;
+			font-size: 40px;
+			width: 50%;
+			text-align: left;
+		}
+		
+		.iconeCellier {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 170px;
+			
+		}
+		
+		.iconeCellier img{
+
+			width: 70px;
+			margin: 0 auto;
+			height: 100%;
+		}
