@@ -520,3 +520,42 @@ form label {  /* background-color: aqua;  */
 			height: 100%;
 			
 		}
+
+		/*================== Icones Card Bouteille Privé et SAQ ==========================*/
+
+		.options{
+			display: flex;
+			align-items: center;
+			justify-content:space-between;
+			margin-top: 40px;
+			width: 10px;
+			
+		}
+
+		.iconesCard {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+		}
+		.iconesCard img {
+			width: 30px;
+			height: 30px;
+			margin-right: 10px;
+		}
+
+
+		.btnModifier{
+			margin-right: 0.5em;
+			font-size: 1.5em;
+		}
+
+        .btnModifiersaq{
+			margin-right: 0.5em;
+			font-size: 1.5em;
+		}
+
+		button img {
+			vertical-align: middle;
+			margin-right: 0.5em;
+		  }
