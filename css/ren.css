@@ -398,7 +398,8 @@ form label {  /* background-color: aqua;  */
 			text-decoration: none;
 
 		}
-
+		/*================== Icone page d'accueil Connexion et s'inscrire==========================*/
+		
 		.flexConnCreer{
 			display: flex;
 			align-items: center;
@@ -406,9 +407,22 @@ form label {  /* background-color: aqua;  */
 		}
 
 		.imgCreer img{
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			width: 40px;
 			margin: 15px;
 			
+		}
+
+		.imgLogin img{
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			margin: 15px;
+
 		}
 
 		.flexUsaFle{
