@@ -4,13 +4,15 @@
 ?>
 
 <div class="cellier">
+        <div class="sectionIconeBouteille">
+            <h1>Nom du Cellier: <?= $datacell[0]['nom']?></h1>
+                <div class="iconeBP">
+     
+                    <h3><a href="?requete=ajouterNouvelleBouteilleCellierPrive&id=<?= $datacell[0]['id']?>"><img src="/vino_etu/img/IconeBP.png"></a></h3>
 
-<h1>Nom du Cellier: <?= $datacell[0]['nom']?></h1>
-<!-- <p><a href="?requete=ajouterNouvelleBouteilleCellierPrive">Ajouter une bouteille au cellier privé</a></p> -->
-<!-- <p><a href="?requete=ajouterNouvelleBouteilleCellier" class="button-28">Ajouter une bouteille au cellier de la SAQ</a></p> -->
-<h3><a href="?requete=ajouterNouvelleBouteilleCellierPrive&id=<?= $datacell[0]['id']?>" class="button-28">Ajouter une bouteille privé</a></h3>
-      <h3><a href="?requete=ajouterNouvelleBouteilleCellier&id=<?= $datacell[0]['id']?>" class="button-28">Ajouter une bouteille SAQ</a></h3>
-    
+                    <h3><a href="?requete=ajouterNouvelleBouteilleCellier&id=<?= $datacell[0]['id']?>"><img src="/vino_etu/img/IconeBS.png"></a></h3>      
+                </div>
+        </div>
 
 <?php
 foreach ($dataprive as $cle => $bouteille) {    
