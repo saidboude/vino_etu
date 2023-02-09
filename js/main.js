@@ -10,7 +10,7 @@
 
 
 
-const BaseURL = "http://localhost:/8080/vino_etu/";
+const BaseURL = "http://localhost:/vino_etu/";
 
 
 

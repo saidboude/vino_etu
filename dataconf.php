@@ -1,11 +1,11 @@
 <?php
 
 	//Local
-	define("BASEURL", "http://localhost:8080/vino_etu/");
+	define("BASEURL", "");
 	define('HOST', 'localhost');
 	define('USER', 'root');
 	define('PASSWORD', '');
-	define('DATABASE', 'vinodbcurrent2');
+	define('DATABASE', 'vinodb');
 	
 	//Herbergeur
 /* 	define("BASEURL", "https://vino-etu.000webhostapp.com/");

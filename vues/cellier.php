@@ -78,12 +78,9 @@ foreach ($data as $cle => $bouteille) {
 
                 <!--  deuxieme div deja faite -->
                 <div class="description">
-                    <p class="quantite">Quantité : <?php echo $bouteille['quantite'] ?></p>
-                    <p class="pays">Pays : <?php echo $bouteille['pays'] ?></p>
-                    <p class="prix_saq">Prix SAQ : <?php echo $bouteille['prix_saq'] ?> $</p>
-                    <p class="format">Format : <?php echo $bouteille['format'] ?></p>
+                    <p class="pays"><?php echo $bouteille['pays'] ?></p>
                     <?php if(isset($bouteille['notes'])){ echo '<p class="notes">Notes : ' . $bouteille['notes'] . '</p>';}?>
-                    <p class="type">Type : <?php 
+                    <p class="type"><?php 
                 if($bouteille['type'] == 1){
                     echo 'Vin Rouge';
                 }elseif($bouteille['type'] == 2){
@@ -93,7 +90,10 @@ foreach ($data as $cle => $bouteille) {
                 }elseif($bouteille['type'] == 4){
                     echo 'Vin Mousseux';
                 }?></p>
-                <p class="millesime">Millesime : <?php echo $bouteille['millesime'] ?></p>
+                <p class="format"><?php echo $bouteille['format'] ?></p>
+                <p class="prix_saq"><?php echo $bouteille['prix_saq'] ?> $</p>
+                <!--<p class="millesime">Millesime : <?php echo $bouteille['millesime'] ?></p>-->
+                <p class="quantite">Quantité : <?php echo $bouteille['quantite'] ?></p>
                 <p><a href="<?php echo $bouteille['url_saq'] ?>">Voir SAQ</a></p>
             </div>
         
