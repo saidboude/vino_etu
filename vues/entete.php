@@ -31,9 +31,9 @@
 	<div class="flexLogoMenu">
 	<?php
 		if ($_SESSION) {
-			echo'<div><a href="?requete=listecellier"><img src="/vino_etu/img/Logo-vino_blanc1.png" alt="logo" class="logo"></a></div>';
+			echo'<div><a href="?requete=listecellier"><img src="/vino_etu/img/Logo-vino_Blanc1.png" alt="logo" class="logo"></a></div>';
 		} else {
-			echo'<div><a href="?requete=login"><img src="/vino_etu/img/Logo-vino_blanc1.png" alt="logo" class="logo"></a></div>';
+			echo'<div><a href="?requete=login"><img src="/vino_etu/img/Logo-vino_Blanc1.png" alt="logo" class="logo"></a></div>';
 		}
 		if ($_SESSION) {
 			echo 
@@ -60,10 +60,14 @@
 		if(!$_SESSION) {
 			echo 
 			'<div class="flexConnCreer">
-				<div class="btnConnexion"><a href="?requete=login">Se connecter</a></div>
 				<div class="imgCreer">
 					<a href="?requete=register">
 						<img src="/vino_etu/img/user-account.png">
+					</a>
+				</div>
+				<div class="imgLogin">
+					<a href="?requete=login">
+						<img src="/vino_etu/img/login.png">
 					</a>
 				</div>
 			</div>';
@@ -76,5 +80,4 @@
 </div>
 
 		
-	</header>
-<main>
+</header>

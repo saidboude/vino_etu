@@ -5,11 +5,15 @@
 
 	define("BASEURL", "http://localhost/vino_etu/");
 
+
+	//Local
+	define("BASEURL", "");
 	define('HOST', 'localhost');
 	define('USER', 'root');
 	define('PASSWORD', '');
-	define('DATABASE', 'vinodbcurrent2');/**/
-	
+	define('DATABASE', 'vinodb');
+
+
 	//Herbergeur
 	//define("BASEURL", "https://vino-etu.000webhostapp.com/");
 	/* define('HOST', 'localhost');

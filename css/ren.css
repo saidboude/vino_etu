@@ -129,12 +129,14 @@ form label {  /* background-color: aqua;  */
 	border-radius: 100px;
 	color: white;
 	cursor: pointer;
-	display: inline-block;
+	/*display: inline-block;*/
 	font-size: 16px;
 	outline: none;
-	padding: 16px 60px;
+	padding: 8px 40px;
 	text-decoration: none;
 	transition: all 0.5s cubic-bezier(.23, 1, 0.32, 1);
+	margin: 0 auto;
+	display: block;
   }
 
 
@@ -144,6 +146,7 @@ form label {  /* background-color: aqua;  */
 	text-decoration: none;
 	box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 	transform: translateY(-2px);
+
   }
 
 /* FormStyle */
@@ -154,14 +157,16 @@ form label {  /* background-color: aqua;  */
 	padding-top: 100px;
 }
 .form-style-8 h2{
-	background: black;
+	/*background: black;*/
 	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
 	font-family: 'Open Sans Condensed', sans-serif;
-	color: white;
-	font-size: 18px;
+	color: black;
+	font-size: 30px;
 	font-weight: 100;
-	padding: 20px;
-	margin: -30px -30px 30px -30px;
+	padding: 10px;
+	margin: -15px -15px 15px -15px;
 }
 .form-style-8 input[type="text"],
 .form-style-8 input[type="date"],
@@ -185,7 +190,7 @@ form label {  /* background-color: aqua;  */
 	border: none;
 	border-bottom: 1px solid #ddd;
 	background: transparent;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 }
@@ -200,12 +205,14 @@ form label {  /* background-color: aqua;  */
 	box-shadow: inset 0px 1px 0px 0px #73162F;
 	background-color: #73162F;
 	border: 1px solid #73162F;
-	display: inline-block;
+	/*display: inline-block;*/
+	display: block;
+	margin: 0 auto;
 	cursor: pointer;
 	color: #FFFFFF;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 14px;
-	padding: 16px 60px;
+	padding: 8px 40px;
 	text-decoration: none;
 	text-transform: uppercase;
 	border-radius: 100px;
@@ -284,13 +291,17 @@ form label {  /* background-color: aqua;  */
   .flexCellier {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	margin: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 30px;
+	padding: 20px;
+	margin-left: 80px;
+	margin-right: 20px; 
 	}
 	
 	.flexCellier .card {
 	flex: 1 0 calc(25% - 20px);
-	margin: 10px;
+	margin: 30px;
 	}
 
 	
@@ -298,24 +309,28 @@ form label {  /* background-color: aqua;  */
 		background-color: rgb(214, 214, 202);
 		padding: 10px;
 		border-radius: 15px;
-		max-width: 300px;
+		max-width: 240px;
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	}
 	.card img{
-		width: 300px;
-		height: 110px;
+		width: 240px;
+		/*height: 110px;*/
 		object-fit: cover;
 		border-radius: 15px;
 	}
 	
 	@media (max-width:768px) {
+
 		.flexCellier .card {
-		flex: 1 0 90%;
+		/*flex: 1 0 90%;*/
+		flex: 1 0 calc(50% - 20px);
 
 		}
 
 		.flexCellier {
 			justify-content: center;
+			margin-left: 10px;
+    		margin-right: 10px;
 		}
 
 		.dropdown {
@@ -365,7 +380,9 @@ form label {  /* background-color: aqua;  */
 		}
 
 		.nom{
-			/* text-transform: uppercase; */
+			text-transform: uppercase;
+			text-align: center;
+			margin: 20px 10px 0.5px 10px;
 		}
 
 		.lieu{
@@ -398,6 +415,7 @@ form label {  /* background-color: aqua;  */
 			text-decoration: none;
 
 		}
+		/*================== Icone page d'accueil Connexion et s'inscrire==========================*/
 
 		.flexConnCreer{
 			display: flex;
@@ -406,9 +424,22 @@ form label {  /* background-color: aqua;  */
 		}
 
 		.imgCreer img{
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			width: 40px;
 			margin: 15px;
 			
+		}
+
+		.imgLogin img{
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			margin: 15px;
+
 		}
 
 		.flexUsaFle{
@@ -422,3 +453,284 @@ form label {  /* background-color: aqua;  */
 			
 		}
 		
+		/*================== Icone ajout Cellier==========================*/
+		
+		.sectionIcone{
+			display: flex;
+			align-items: center;
+			justify-content:space-between; 
+			margin-top: 30px;
+			
+		}
+
+		.sectionIcone h1{
+			margin-left: 120px;
+			font-size: 40px;
+			width: 50%;
+			text-align: left;
+		}
+		
+		.iconeCellier {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 170px;
+			
+		}
+		
+		.iconeCellier img{
+
+			width: 70px;
+			margin: 0 auto;
+			height: 100%;
+		}
+
+		/*================== Icone ajout Bouteille Privé et SAQ ==========================*/
+
+
+		.sectionIconeBouteille {
+			display: flex;
+			align-items: center;
+			justify-content:space-between;
+			margin-top: 30px;
+			
+
+		}
+
+		.sectionIconeBouteille h1 {
+			margin-left: 150px;
+			font-size: 40px;
+			width: 92%;
+			text-align: left;
+		}
+
+		
+		.iconeBP{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 250px;
+			/* border: red solid; */
+
+		} 
+		
+		.iconeBP img{
+			
+			width: 80px;
+			margin: 0 auto;
+			height: 100%;
+			
+		}
+
+
+		/*==================  Card Bouteille Privé et SAQ ==========================*/
+
+		.flexBouteille .cardBouteille {
+			/*flex: 1 0 90%;*/
+			flex: 1 0 calc(50% - 20px);
+	
+			}
+			.bouteilleImg{
+			 
+				display: flex;
+				/* flex-direction: row; */
+				align-items: center;
+				justify-content: center;
+				/* margin: 20px 0; */
+				
+			}
+			
+			.cardBouteille *{
+				margin: 5px;
+			}
+			.flexBouteille {
+				/*display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-left: 10px;
+				margin-right: 10px;*/
+				display: flex;
+        		flex-wrap: wrap;
+       		    justify-content: space-around;
+			}
+
+			/*.nomB {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				
+			}*/
+
+			/*.flexBouteille {
+				display: flex;
+				flex-wrap: wrap;
+				display: flex;
+				flex-wrap: wrap;
+				margin: 30px;
+				padding: 20px;
+				margin-left: 80px;
+				margin-right: 20px; 
+				}
+				*/
+				.flexBouteille .cardBouteille {
+				flex: 1 0 calc(25% - 20px);
+				margin: 30px;
+				}
+			
+				
+				.cardBouteille{
+					background-color: rgb(214, 214, 202);
+					padding: 10px;
+					border-radius: 15px;
+					max-width: 240px;
+					box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+					border-radius: 5px;
+					width: 300px;
+				}
+
+				
+				.cardBouteille img{
+					width: 70px;
+					object-fit: cover;
+					border-radius: 15px;
+					padding: 10px;
+					justify-content: center;
+				}
+				.cardBouteille .icon img{
+					width: 20px;
+					object-fit: cover;
+					border-radius: 15px;
+					padding: 10px;
+					justify-content: center;
+				}
+				
+				/*.description {
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					/*text-align: left;*/
+					/*width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					line-height:0.8;
+					padding: 10px;
+					}*/
+				/*.description p{
+					font-size: 13px;
+				}*/
+		/*================== Icones Card Bouteille Privé et SAQ ==========================*/
+
+		.options{
+			display: flex;
+			align-items: center;
+			justify-content:space-between;
+			margin-right: 60px;
+			/* width: 10px; */
+		}
+		
+		.options div{
+		}
+
+		.iconesCard {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+		}
+		.iconesCard img {
+			width: 30px;
+			height: 30px;
+			margin-right: 10px;
+		}
+
+
+		.btnModifier{
+			margin-right: 0.5em;
+			font-size: 1.5em;
+		}
+
+		.options .icon{
+			width: 10px;
+    		background-color: transparent;
+    		border: none;
+		}
+		
+		button img {
+			vertical-align: middle;
+			margin-right: 0.5em;
+		  }
+         
+		  /*================== Card Bouteille Privé et SAQ ==========================*/
+
+		  .product {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin: 20px 0;
+		  }
+		  .product img {
+			width: 100px;
+			/* height: 50px; */
+			margin-right: 20px;
+		  }
+		  .product .details {
+			display: flex;
+			flex-direction: column;
+		  }
+	
+		  .uneBouteille{
+			border: black solid 1px;
+			border-radius: 5px;
+			width: 300px;
+		  }
+	
+		  .uneBouteille *{
+			margin: 5px;
+		}
+	
+		.flexInfoImgBouteille{
+			display: flex;
+		}
+
+
+		.flexInfoImgBouteille .bouteilleImg{
+			width: 30%;
+		}
+	
+		@media only screen and (max-width: 600px) {
+			.uneBouteille{
+			  width: 100%;
+			}
+			.product img {
+			  width: 50px;
+			}
+		  }
+
+		@media only screen and (max-width: 480px) {
+			.sectionIconeBouteille{
+				display: block;
+			}
+
+			.iconeBP img{
+				width: 50px;
+			}
+
+			.iconeBP{
+
+				margin-right: 0px;
+			}
+
+			.sectionIconeBouteille h1{
+				margin-left: 0;
+				text-align: center;
+
+			}
+		  }
+	
