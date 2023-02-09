@@ -1,18 +1,18 @@
 <div class="login">
 
-<!--     <h1>Connection</h1>
-    <div>
-        <p>Email : <input name="email"></p>
-        <p>Mot de passe : <input name="mdp"></p>
-    </div>
-    <button name="">Se Connecter</button> -->
 
 <div class="form-style-8">
   <h2>Connexion</h2>
 
-    <form action="?requete=login" method="post">
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="mdp" placeholder="Mot de passe" />
+    <form autocomplete="off" id="login" action="?requete=login" method="post" >      
+      <input type="email" name="email" placeholder="Email" autocomplete="off" />
+      <input type="password" name="mdp" placeholder="Mot de passe" autocomplete="off" />
+      
+      <?php
+        if(isset($erreur)) {
+          echo '<span id="erreurLogin" class="error-message">'.$erreur.'</span>';
+        }
+      ?>
       <button type="submit" class="top button-28">Se Connecter</button>
     </form>
 </div>

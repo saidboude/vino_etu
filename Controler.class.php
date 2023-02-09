@@ -145,8 +145,7 @@ class Controler
 
 			if (!$usager || !password_verify($mdp, $usager[0]['mdp'])) {
 
-				$erreur = "Combinaison courriel/mot de passe erronée";
-				var_dump($erreur);
+				$erreur = "Combinaison courriel/mot de passe erronée";				
 			}
 
 			if (!$erreur) {
