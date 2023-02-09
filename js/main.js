@@ -10,7 +10,7 @@
 
 
 
-const BaseURL = "http://localhost:/vino_etu/";
+const BaseURL = "http://localhost:/8080/vino_etu/";
 
 
 
@@ -259,6 +259,7 @@ window.addEventListener('load', function () {
         //console.log(e);
         e.addEventListener('click', function(evt){
           let id = evt.target.parentElement.dataset.id;
+
           
           console.log(location.href);
           //let requete = new Request(BaseURL+`index.php?requete=modifier`);//, {method: 'GET'}?id=${id}`,
