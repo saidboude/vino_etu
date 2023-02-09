@@ -1,15 +1,5 @@
 <?php
-/**
- * Class MonSQL
- * Classe qui génère ma connection à MySQL à travers un singleton
- *
- *
- * @author Jonathan Martel
- * @version 1.0
- *
- *
- *
- */
+
 class SAQ extends Modele {
 
 	const DUPLICATION = 'duplication';

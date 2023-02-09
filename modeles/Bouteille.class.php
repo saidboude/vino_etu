@@ -1,18 +1,11 @@
 <?php
-/**
- * Class Bouteille
- * Cette classe possède les fonctions de gestion des bouteilles dans le cellier et des bouteilles dans le catalogue complet.
- * 
- * @author Jonathan Martel
- * @version 1.0
- * @update 2019-01-21
- * @license Creative Commons BY-NC 3.0 (Licence Creative Commons Attribution - Pas d’utilisation commerciale 3.0 non transposé)
- * @license http://creativecommons.org/licenses/by-nc/3.0/deed.fr
- * 
- */
+
 class Bouteille extends Modele {
 	const TABLE = 'vino__bouteille';
     
+	/**
+	 * Fonction qui obtien la liste de la saq
+	 */
 	public function getListeBouteille()
 	{
 		
@@ -28,7 +21,9 @@ class Bouteille extends Modele {
 		
 		return $rows;
 	}
-	
+	/**
+	 * Fonction qui obtien les types
+	 */
 	public function getListeType()
 	{
 		
@@ -45,7 +40,9 @@ class Bouteille extends Modele {
 		return $rows;
 	}
 
-
+/**
+ * Fonction qui obtien les info pour bouteille saq
+ */
 	public function getListeBouteilleSAQ($id_cellier)
 	{
 		$rows = Array();
@@ -60,21 +57,9 @@ class Bouteille extends Modele {
 		
 		return $rows;
 	}
-/* 
-	public function getListeBouteilleSAQ($id_cellier)
-	{
-		$rows = Array();
-		$res = $this->_db->query("SELECT * FROM vino__bouteille_saq WHERE id_cellier = '" . $id_cellier . "'");
-		if($res->num_rows)
-		{
-			while($row = $res->fetch_assoc())
-			{
-				$rows[] = $row;
-			}
-		}
-		
-		return $rows;
-	} */
+/**
+ * Fonction qui obtien les info pour bouteille prive
+ */
 	public function getListeBouteillePrive($id_cellier)
 	{
 		$rows = Array();
@@ -89,8 +74,6 @@ class Bouteille extends Modele {
 		
 		return $rows;
 	}
-	
-	
 	
 	/**
 	 * Cette méthode permet de retourner les résultats de recherche pour la fonction d'autocomplete de l'ajout des bouteilles dans le cellier
@@ -109,9 +92,8 @@ class Bouteille extends Modele {
 		$nom = $this->_db->real_escape_string($nom);
 		$nom = preg_replace("/\*/","%" , $nom);
 		 
-		//echo $nom;
 		$requete ='SELECT id, nom FROM vino__bouteille where LOWER(nom) like LOWER("%'. $nom .'%") LIMIT 0,'. $nb_resultat; 
-		//var_dump($requete);
+
 		if(($res = $this->_db->query($requete)) ==	 true)
 		{
 			if($res->num_rows)
@@ -129,7 +111,6 @@ class Bouteille extends Modele {
 			throw new Exception("Erreur de requête sur la base de données", 1);
 			 
 		}
-		//var_dump($rows);
 		return $rows;
 	}
 	
@@ -163,6 +144,9 @@ class Bouteille extends Modele {
 		return $res;
 	} */
 
+	/**
+	 * Fonction qui ajoute une bouteille saq
+	 */
 	public function ajouterBouteilleCellier($data)
 	{
 		
@@ -171,7 +155,6 @@ class Bouteille extends Modele {
 		"'".$data->id_bouteille."',".
 		"'".$data->date_achat."',".
 		"'".$data->garde_jusqua."',".
-		//"'".$data->notes."',".
 		"'".$data->quantite."',".
 		"'".$data->millesime."')";
 
@@ -180,10 +163,11 @@ class Bouteille extends Modele {
 		return $res;
 	}
 	
+	/**
+	 * Fonction qui ajoute bouteille prive
+	 */
 	public function ajouterBouteilleCellierPrive($data)
 	{
-		//TODO : Valider les données.
-		//var_dump($data);	
 		
 		$requete = "INSERT INTO vino__bouteille_prive(nom,id_cellier,date_achat,garde_jusqua,prix_achat,quantite,pays,id_type,millesime) VALUES (".
 		"'".$data['nom']."',".
@@ -201,6 +185,9 @@ class Bouteille extends Modele {
 		return $res;
 	}
 
+	/**
+	 * Fonction qui supprime bouteille prive
+	 */
 	public function deleteprive($id)
 	{	
 		$requete = "DELETE FROM vino__bouteille_prive WHERE id='" . $id . "'";
@@ -210,6 +197,9 @@ class Bouteille extends Modele {
 		return $res;
 
 	}
+	/**
+	 * Fonction qui supprime bouteille saq
+	 */
 	public function deleteSAQ($id)
 	{	
 		$requete = "DELETE FROM vino__bouteille_saq WHERE id_bouteille = '" . $id . "'";
@@ -219,8 +209,6 @@ class Bouteille extends Modele {
 		return $res;
 
 	}
-	
-	
 	
 	/**
 	 * Cette méthode change la quantité d'une bouteille en particulier dans le cellier
@@ -232,9 +220,7 @@ class Bouteille extends Modele {
 	 */
 	public function modifierQuantiteBouteilleCellier($id, $nombre)
 	{
-		//TODO : Valider les données.
-			
-			
+
 		$requete = "UPDATE vino__bouteille_prive SET quantite = GREATEST(quantite + ". $nombre. ", 0) WHERE id = ". $id;
 
         $res = $this->_db->query($requete);
@@ -243,11 +229,12 @@ class Bouteille extends Modele {
 
 
 	}
+	/**
+	 * Fonction qui change la quantité d'une bouteille en particulier dans le cellier
+	 */
 	public function modifierQuantiteBouteilleCellierSAQ($id, $nombre)
 	{
-		//TODO : Valider les données.
-			
-			
+
 		$requete = "UPDATE vino__bouteille_saq SET quantite = GREATEST(quantite + ". $nombre. ", 0) WHERE id = ". $id;
 
         $res = $this->_db->query($requete);
@@ -257,7 +244,9 @@ class Bouteille extends Modele {
 
 	}
 
-//yordan
+/**
+ * Fonction qui obtien bouteille prive
+ */
 	public function getBouteilleCellier($id)
 	{
 		$requete = "SELECT * FROM vino__bouteille_prive WHERE id = $id";
@@ -266,10 +255,13 @@ class Bouteille extends Modele {
 		
 		return $row;
 	}
-		/**Modification d'une bouteille */
+
+		/**
+		 * Fonction qui modifie une bouteille prive
+		 */
 		public function modifierBouteilleCellier($data)	
 		{
-			var_dump($data);
+
 			$id = $data->id;
 			$requete = "UPDATE 	`vino__bouteille_prive` SET 
 								`id_cellier`='".$data->id_cellier."', 
@@ -288,6 +280,10 @@ class Bouteille extends Modele {
 			return $res;
 	
 		} 
+
+		/**
+		 * Fonction qui obtien les bouteille saq
+		 */
 	public function getBouteilleCelliersaq($id)
 	{
 		$requete = "SELECT * FROM vino__bouteille_saq WHERE id = $id";
@@ -296,7 +292,9 @@ class Bouteille extends Modele {
 		
 		return $row;
 	}
-		/**Modification d'une bouteille */
+		/**
+		 * Fonction qui modifie une bouteille saq
+		 */
 		public function modifierBouteilleCelliersaq($data)	
 		{
 			var_dump($data);
