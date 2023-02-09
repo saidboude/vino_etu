@@ -500,7 +500,7 @@ form label {  /* background-color: aqua;  */
 		.sectionIconeBouteille h1 {
 			margin-left: 150px;
 			font-size: 40px;
-			width: 50%;
+			width: 92%;
 			text-align: left;
 		}
 
@@ -510,6 +510,7 @@ form label {  /* background-color: aqua;  */
 			align-items: center;
 			justify-content: center;
 			margin-right: 250px;
+			/* border: red solid; */
 
 		} 
 		
@@ -521,15 +522,120 @@ form label {  /* background-color: aqua;  */
 			
 		}
 
+
+		/*==================  Card Bouteille Privé et SAQ ==========================*/
+
+		.flexBouteille .cardBouteille {
+			/*flex: 1 0 90%;*/
+			flex: 1 0 calc(50% - 20px);
+	
+			}
+			.bouteilleImg{
+			 
+				display: flex;
+				/* flex-direction: row; */
+				align-items: center;
+				justify-content: center;
+				/* margin: 20px 0; */
+				
+			}
+			
+			.cardBouteille *{
+				margin: 5px;
+			}
+			.flexBouteille {
+				/*display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-left: 10px;
+				margin-right: 10px;*/
+				display: flex;
+        		flex-wrap: wrap;
+       		    justify-content: space-around;
+			}
+
+			/*.nomB {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				
+			}*/
+
+			/*.flexBouteille {
+				display: flex;
+				flex-wrap: wrap;
+				display: flex;
+				flex-wrap: wrap;
+				margin: 30px;
+				padding: 20px;
+				margin-left: 80px;
+				margin-right: 20px; 
+				}
+				*/
+				.flexBouteille .cardBouteille {
+				flex: 1 0 calc(25% - 20px);
+				margin: 30px;
+				}
+			
+				
+				.cardBouteille{
+					background-color: rgb(214, 214, 202);
+					padding: 10px;
+					border-radius: 15px;
+					max-width: 240px;
+					box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+					border-radius: 5px;
+					width: 300px;
+				}
+
+				
+				.cardBouteille img{
+					width: 70px;
+					object-fit: cover;
+					border-radius: 15px;
+					padding: 10px;
+					justify-content: center;
+				}
+				.cardBouteille .icon img{
+					width: 20px;
+					object-fit: cover;
+					border-radius: 15px;
+					padding: 10px;
+					justify-content: center;
+				}
+				
+				/*.description {
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					/*text-align: left;*/
+					/*width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					line-height:0.8;
+					padding: 10px;
+					}*/
+				/*.description p{
+					font-size: 13px;
+				}*/
 		/*================== Icones Card Bouteille Privé et SAQ ==========================*/
 
 		.options{
 			display: flex;
 			align-items: center;
 			justify-content:space-between;
-			margin-top: 40px;
-			width: 10px;
-			
+			margin-right: 60px;
+			/* width: 10px; */
+		}
+		
+		.options div{
 		}
 
 		.iconesCard {
@@ -550,12 +656,81 @@ form label {  /* background-color: aqua;  */
 			font-size: 1.5em;
 		}
 
-        .btnModifiersaq{
-			margin-right: 0.5em;
-			font-size: 1.5em;
+		.options .icon{
+			width: 10px;
+    		background-color: transparent;
+    		border: none;
 		}
-
+		
 		button img {
 			vertical-align: middle;
 			margin-right: 0.5em;
 		  }
+         
+		  /*================== Card Bouteille Privé et SAQ ==========================*/
+
+		  .product {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin: 20px 0;
+		  }
+		  .product img {
+			width: 100px;
+			/* height: 50px; */
+			margin-right: 20px;
+		  }
+		  .product .details {
+			display: flex;
+			flex-direction: column;
+		  }
+	
+		  .uneBouteille{
+			border: black solid 1px;
+			border-radius: 5px;
+			width: 300px;
+		  }
+	
+		  .uneBouteille *{
+			margin: 5px;
+		}
+	
+		.flexInfoImgBouteille{
+			display: flex;
+		}
+
+
+		.flexInfoImgBouteille .bouteilleImg{
+			width: 30%;
+		}
+	
+		@media only screen and (max-width: 600px) {
+			.uneBouteille{
+			  width: 100%;
+			}
+			.product img {
+			  width: 50px;
+			}
+		  }
+
+		@media only screen and (max-width: 480px) {
+			.sectionIconeBouteille{
+				display: block;
+			}
+
+			.iconeBP img{
+				width: 50px;
+			}
+
+			.iconeBP{
+
+				margin-right: 0px;
+			}
+
+			.sectionIconeBouteille h1{
+				margin-left: 0;
+				text-align: center;
+
+			}
+		  }
+	
