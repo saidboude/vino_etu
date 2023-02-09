@@ -196,6 +196,7 @@ window.addEventListener('load', function () {
     {
       btnAjouter.addEventListener("click", function (evt) {
         
+        let id = evt.target.parentElement.dataset.id;
         evt.preventDefault();
 
         var param = {
@@ -228,7 +229,7 @@ window.addEventListener('load', function () {
         let status = validAjoutNouvelleBouteilleSaq(param);
         if(status)
         {  
-          let requete = new Request(BaseURL + "index.php?requete=ajouterNouvelleBouteilleCellier", { method: 'POST', body: JSON.stringify(param) });
+          let requete = new Request(BaseURL + `index.php?requete=ajouterNouvelleBouteilleCellier`, { method: 'POST', body: JSON.stringify(param) });
           console.log(JSON.stringify(param));
           fetch(requete)
           .then(response => {
@@ -241,11 +242,12 @@ window.addEventListener('load', function () {
           .then(response => {
             console.log(response);
 
-            window.location = BaseURL + "?requete=listecellier";
+            //window.location = BaseURL + "?requete=listecellier";
+            window.location = BaseURL + `?requete=cellierid&id=${id}`;
 
             }).catch(error => {
               console.error(error);
-              window.location = BaseURL + "?requete=listecellier";
+              window.location = BaseURL + `?requete=cellierid&id=${id}`;
             });
         }
       });
@@ -295,6 +297,7 @@ window.addEventListener('load', function () {
     document.querySelectorAll(".modifierBouteille").forEach(function(e) {
       console.log(e);
       e.addEventListener('click', function(evt){        
+        let id = evt.target.parentElement.dataset.id;
         //console.log(id);
         var bouteille = {
           nom : document.querySelector(".nom_bouteille"),
@@ -406,7 +409,8 @@ window.addEventListener('load', function () {
       }).catch(error => {
         console.error(error);
 
-        window.location = BaseURL + "?requete=listecellier";
+        //window.location = BaseURL + "?requete=listecellier";
+        window.location = BaseURL + `?requete=cellierid&id=${id}`;
       });
         
     }
@@ -419,6 +423,7 @@ window.addEventListener('load', function () {
     document.querySelectorAll(".modifierBouteillesaq").forEach(function(e) {
       console.log(e);
       e.addEventListener('click', function(evt){
+        let id = evt.target.parentElement.dataset.id;
         //console.log(id);
         let bouteille = {
           id : document.querySelector("[name=id]"),
@@ -458,7 +463,7 @@ window.addEventListener('load', function () {
           
           }).catch(error => {
             console.error(error);
-            window.location = BaseURL + "?requete=listecellier";
+            window.location = BaseURL + `?requete=cellierid&id=${id}`;
 
           });
         }    
@@ -602,7 +607,7 @@ window.addEventListener('load', function () {
   
       // Valider nom bouteuille
       if (id_bouteille == "") {
-        document.getElementById("nom_bouteille").textContent = "Champ obligatoire";
+        document.getElementById("nom_bouteille").textContent = "Veuillez choisir une bouteille";
         formValid = false;
         return false;
       } else {
@@ -611,18 +616,18 @@ window.addEventListener('load', function () {
 
       // Valider date de recolte
       if (millesime == "") {
-        document.getElementById("millesime").textContent = "Champ obligatoire";
+        document.getElementById("millesime").textContent = "Veuillez entrer une année";
         formValid = false;
         return false;
       } else {
         // N'est pas un chiffre
         if (!millesime.match(/^[0-9]{4}$/)){
-          document.getElementById("millesime").textContent = "année de 4 chiffres";
+          document.getElementById("millesime").textContent = "Veuillez entrez une année de 4 chiffres";
           formValid = false;
           return false;
         }else{  
             if (millesime > '2023') {
-              document.getElementById("millesime").textContent = "Millesime inférieure 2023";
+              document.getElementById("millesime").textContent = "Veuillez rentrez une année inférieure a 2023";
               formValid = false;
               return false;
             }else{
@@ -633,12 +638,12 @@ window.addEventListener('load', function () {
 
       // Valider Quantite
       if (!quantite.match(/^[0-9]+$/)){
-        document.getElementById("quantite").textContent = "Valeur numerique";
+        document.getElementById("quantite").textContent = "Veuillez entrez une quantité";
         formValid = false;
         return false;
       }else{  
-        if (quantite < 1){
-          document.getElementById("quantite").textContent = "Veuillez entrer un chiffre";
+        if (quantite < 0){
+          document.getElementById("quantite").textContent = "Veuillez entrer un chiffre positif";
           formValid = false;
           return false;
         } else {
@@ -648,7 +653,7 @@ window.addEventListener('load', function () {
 
       // Valider date achat
       if (date_achat == "") {
-        document.getElementById("date_achat").textContent = "Champ obligatoire";
+        document.getElementById("date_achat").textContent = "Veuillez entrez une date d'achat";
         formValid = false;
         return false;
       } else {
@@ -657,7 +662,7 @@ window.addEventListener('load', function () {
       
       // Valider garde_jusqua
       if (garde_jusqua == "") {
-        document.getElementById("garde_jusqua").textContent = "Champ obligatoire";
+        document.getElementById("garde_jusqua").textContent = "Besoin de garder jusqua?";
         formValid = false;
         return false;
       } else {
@@ -684,7 +689,7 @@ window.addEventListener('load', function () {
 
       // Valider date achat
       if (date_achat == "") {
-        document.getElementById("date_achat").textContent = "Champ obligatoire";
+        document.getElementById("date_achat").textContent = "Veuillez entrez une date d'achat";
         formValid = false;
         return false;
       } else {
@@ -693,7 +698,7 @@ window.addEventListener('load', function () {
       
       // Valider garde_jusqua
       if (garde_jusqua == "") {
-        document.getElementById("garde_jusqua").textContent = "Champ obligatoire";
+        document.getElementById("garde_jusqua").textContent = "Besoin de garder jusqua?";
         formValid = false;
         return false;
       } else {
@@ -702,18 +707,18 @@ window.addEventListener('load', function () {
 
       // Valider date de recolte
       if (millesime == "") {
-        document.getElementById("millesime").textContent = "Champ obligatoire";
+        document.getElementById("millesime").textContent = "Veuillez entrer une année";
         formValid = false;
         return false;
       } else {
         // N'est pas un chiffre
         if (!millesime.match(/^[0-9]{4}$/)){
-          document.getElementById("millesime").textContent = " Année 4 de chiffres";
+          document.getElementById("millesime").textContent = " Veuillez entrez une année de 4 chiffres";
           formValid = false;
           return false;
         }else{  
             if (millesime > '2023') {
-              document.getElementById("millesime").textContent = "Millesime inférieure 2023";
+              document.getElementById("millesime").textContent = "Veuillez rentrez une année inférieure a 2023";
               formValid = false;
               return false;
             }else{
@@ -724,12 +729,12 @@ window.addEventListener('load', function () {
 
       // Valider Notes
       if (!notes.match(/^[0-9]+$/)){
-        document.getElementById("notes").textContent = "Valeur numerique";
+        document.getElementById("notes").textContent = "Veuillez entrez une notes sur 10";
         formValid = false;
         return false;
       }else{  
         if ((notes < 1) || (notes > 10)) {
-          document.getElementById("notes").textContent = "Chiffre de 1 à 10";
+          document.getElementById("notes").textContent = "Veuillez entrez un chiffre de 1 à 10";
           formValid = false;
           return false;
         } else {
