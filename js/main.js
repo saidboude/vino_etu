@@ -9,9 +9,9 @@
  */
 
 
-
-const BaseURL = "http://localhost:8080/vino_etu/";
-
+//const BaseURL = "https://vino-etu.000webhostapp.com/";
+//const BaseURL = "http://localhost:8080/vino_etu/";
+const BaseURL = "http://localhost/vino_etu/";
 
 
 //import Validation from "./validation.js";
@@ -208,21 +208,6 @@ window.addEventListener('load', function () {
           "quantite":bouteille.quantite.value,
           "millesime":bouteille.millesime.value,
         };
-
-
-    /*     var param = {
-          "nom": bouteille.nom.value,
-          "id_bouteille": bouteille.nom.dataset.id,
-          "id_cellier": bouteille.id_cellier.value,
-          "date_achat": bouteille.date_achat.value,
-          "garde_jusqua": bouteille.garde_jusqua.value,
-          "notes": bouteille.date_achat.value,
-          "prix_saq": bouteille.prix_saq.value,
-          "quantite": bouteille.quantite.value,
-          "millesime": bouteille.millesime.value,
-          "pays": bouteille.pays.value,
-          "id_type": bouteille.id_type.value,
-        }; */
         
         // Said :    
         // Validation des champs
@@ -318,7 +303,7 @@ window.addEventListener('load', function () {
         console.log(bouteille.quantite.value);
         function formValModPrive() {
           let prixRex = /^(\d+)(.\d{1,2})?$/,
-              nomRex = /^([0-9a-zA-Z\_&':]+\s?){1,6}$/i,
+              nomRex = /^([0-9a-zA-Z\_&':`èûüêÉ;ïîë-]+\s?){1,6}$/i,
               notesRex = /^10|[1-9]$/,
               paysRex = /([a-z\']+\s?){1,6}$/i,
               quantiteRex = /^[0-9]{0,4}$/i,
@@ -338,7 +323,7 @@ window.addEventListener('load', function () {
             document.getElementById("millesime").textContent = "";
           } 
           if (quantiteRex.test(bouteille.quantite.value.trim()) == false) {
-            document.getElementById("quantite").textContent = "Veuillez entrer une quantité";
+            document.getElementById("quantite").textContent = "Veuillez entrer un chiffre";
             return false;
           } else {
             document.getElementById("quantite").textContent = "";
@@ -471,19 +456,16 @@ window.addEventListener('load', function () {
 
     });
 
+    /**Listenner pour le form ajoutPrive */
     let currentRequete = window.location.search.substring(window.location.pathname.lastIndexOf('/'));
     if (currentRequete.includes("ajouterNouvelleBouteilleCellierPrive") == true) {
-      console.log(window.location.search);//== 'requete' .substring(window.location.pathname.lastIndexOf('/'))
+      console.log(window.location.search);
       console.log(currentRequete.includes("ajouterNouvelleBouteilleCellierPrive"));
-      /**Listenner pour le form ajoutPrive */
-      //document.querySelectorAll("#ajoutPrive").forEach(function(e){})
-            
+      
       let btn = this.document.querySelector("#ajoutPrive"); // [data-js-submit]      
       let form = document.getElementById("ajouterPrive");  // '[data-name="form"]'    
       btn.addEventListener("click", function (evt) { 
         evt.preventDefault(); 
-        console.log("hola");               
-      
         console.log(formValidator());      
         let bool = formValidator();
         console.log(bool);      
@@ -494,9 +476,11 @@ window.addEventListener('load', function () {
        /**
      * Methode de validation du form d'ajout privé
      * @return bool
+     * @author Yordan 
+     * 
     */
     function formValidator() {       
-      let nomRex = /^([0-9a-zA-Z\_&':]+\s?){1,6}$/i,      
+      let nomRex = /^([0-9a-zA-Z\_&':`èûüêÉ;ïîë-]+\s?){1,6}$/i,      
           nom = document.querySelector("[name='nom']").value.trim().replace(/\s+/g, ' '),
           millesimeRex = /(^[1|2]\d{3}$)/, 
           millesime = millesimeRex.test(form[2].value),
@@ -558,11 +542,10 @@ window.addEventListener('load', function () {
       console.log("submit");      
       return true;      
     }    
-    }   
-    
-     
-    if (currentRequete.includes("profilmod") == true) {
-        /**Listenner pour modif profil */
+    } 
+        
+    /**Validation de modif profil */
+    if (currentRequete.includes("profilmod") == true) {        
       let btnModProfil = document.querySelector("[name='btnModProfil']"),
           formModProfil= document.querySelector('#modProfilForm');
       //console.log(formModProfil[0]);
@@ -574,8 +557,11 @@ window.addEventListener('load', function () {
           formModProfil.submit();
         }
       });
+
+      //
       /**Methode de validation du form modification du profil
      * @return bool
+     * @author Yordan 
      */
     function formModProfilVal() { 
       let nomRex = /^([0-9a-zA-Z\_&':]+\s?){1,3}$/i,
@@ -591,6 +577,40 @@ window.addEventListener('load', function () {
     }
     }
 
+    /*Validation du formulaire ajout de cellier*/
+    if (currentRequete.includes("ajoutercellier")) {      
+      formAjoutCellier = this.document.getElementById("formAjoutCellier");
+      
+      formAjoutCellier[2].addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log(formAjoutCellier.length);
+        let boolean = valAjoutCellier();
+        if (boolean) {
+          formAjoutCellier.submit();
+        }
+      });
+
+      /**
+       * Methode de validation d'ajout cellier
+       * @returns boolean
+       * @author Yordan 
+       * 
+       */
+      function valAjoutCellier() {
+        let nomLieuRex = /^([0-9a-zA-Z\_&':`èûüêÉ;ïîë-]+\s?){1,6}$/i;
+        for (let i = 0; i < formAjoutCellier.length - 1; i++) {          
+          if (nomLieuRex.test(formAjoutCellier[i].value) == false) {
+            //let value = deburr(formAjoutCellier[i].value);
+            //console.log(value);
+            document.getElementById(i).textContent = "Veuillez remplir ce champ";
+            return false;
+          } 
+          document.getElementById(i).textContent = "";
+        }          
+          console.log("ajouter");
+          return true;        
+      }
+    }    
 
     // SAID ..
     /**
