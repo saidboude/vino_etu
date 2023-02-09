@@ -1,12 +1,11 @@
 <div class="cellier">
 
+    <h2>Vos Celliers</h2>
 <div class="wrapajout">
     <h3><a href="?requete=ajoutercellier" class="button-28">Ajouter un nouveau cellier</a></h3>
 </div>
-<div class="form-style-8">
 
-    <h2 class="titre">Vos Celliers</h2>
-</div>
+
         <div class="flexCellier">
     <?php
     foreach ($data as $cle => $cellier) {
@@ -17,7 +16,7 @@
         <h3 class="nom"><?php echo $cellier['nom'] ?></h3>
         <div class="flexLieu">
             <img src="/vino_etu/img/location.png" alt="">
-            <p class="lieu"><?php echo $cellier['lieu'] ?></p>
+            <?php echo $cellier['lieu'] ?>
         </div>
         
     <!--     <form action="?requete=cellier" method="post">

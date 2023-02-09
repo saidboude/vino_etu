@@ -30,7 +30,7 @@
             <input type="date" name="date_achat" placeholder="Date d'achat" />            
              
             <span id="garde_jusqua" class="error-message"></span>
-            <input type="text" name="garde_jusqua" placeholder="Garder jusqu'à"/>
+            <input type="date" name="garde_jusqua" placeholder="Garder jusqu'à"/>
             Choisissez un type:
             <select name="id_type">
                 <?php

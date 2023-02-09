@@ -71,6 +71,9 @@ class Controler
 			case 'deleteSAQ':
 				$this->deleteSAQ();
 				break;
+			case 'deletecellier':
+				$this->deletecellier();
+				break;
 
 				//yordan
 			case "getBouteille":
@@ -207,7 +210,26 @@ class Controler
 			$id_bouteille = $_POST['id'];
 			$bte = new Bouteille();
 			$bte->deleteSAQ($id_bouteille);
+			$succes = 'Bravo!';
+			$id_cellier = $_GET['id'];
+			$cellier = new Cellier();
+			$datacell = $cellier->getcellier($id_cellier);
+		}
+		include("vues/entete.php");
+		include("vues/cellier.php");
+		include("vues/pied.php");
+	}
+
+	private function deletecellier()
+	{
+		if (!empty($_POST)) {
+			$id_cellier = $_POST['id'];
+			$cellier = new Cellier();
+			$cellier->deletecellier($id_cellier);
+			$cellier->deletebteprive($id_cellier);
+			$cellier->deletebtesaq($id_cellier);
 			header("Location: " . BASEURL . "?requete=listecellier");
+			exit();
 		}
 	}
 

@@ -44,7 +44,9 @@
     
         <input type="hidden" name="id" value="<?= $data["id"] ?>">
 
+        <div data-id="<?php echo $cellier['id'] ?>">
         <button type="submit" class="modifierBouteille top button-28">Modifier</button>
+        </div>
 
 
     </div>
