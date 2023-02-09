@@ -71,6 +71,34 @@ class Cellier extends Modele {
 		return $res;
 	}
 
+	public function deletecellier($id)
+	{	
+		$requete = "DELETE FROM vino__cellier WHERE id='" . $id . "'";
+
+        $res = $this->_db->query($requete);
+        
+		return $res;
+
+	}
+	public function deletebteprive($id)
+	{	
+		$requete = "DELETE FROM vino__bouteille_prive WHERE id_cellier ='" . $id . "'";
+
+        $res = $this->_db->query($requete);
+        
+		return $res;
+
+	}
+	public function deletebtesaq($id)
+	{	
+		$requete = "DELETE FROM vino__bouteille_saq WHERE id_cellier ='" . $id . "'";
+
+        $res = $this->_db->query($requete);
+        
+		return $res;
+
+	}
+
 	
 
 }
