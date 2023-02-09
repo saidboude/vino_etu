@@ -498,7 +498,7 @@ form label {  /* background-color: aqua;  */
 		}
 
 		.sectionIconeBouteille h1 {
-			margin-left: 150px;
+			margin-left: 180px;
 			font-size: 40px;
 			width: 92%;
 			text-align: left;
@@ -510,7 +510,8 @@ form label {  /* background-color: aqua;  */
 			align-items: center;
 			justify-content: center;
 			margin-right: 250px;
-			/* border: red solid; */
+			margin-block-start: auto;
+		
 
 		} 
 		
@@ -522,6 +523,20 @@ form label {  /* background-color: aqua;  */
 			
 		}
 
+		.iconeBP .iconS {
+			width: 80px;
+    		background-color: transparent;
+    		border: none;
+		}
+
+		.iconS img{
+			width: 80px;
+			margin: 0 auto;
+			height: 100%;
+			padding-top: 30px;
+
+
+		}
 
 		/*==================  Card Bouteille Privé et SAQ ==========================*/
 
@@ -544,41 +559,32 @@ form label {  /* background-color: aqua;  */
 				margin: 5px;
 			}
 			.flexBouteille {
-				/*display: flex;
-				justify-content: center;
+				
+				display: flex;
 				align-items: center;
-				margin-left: 10px;
-				margin-right: 10px;*/
-				display: flex;
         		flex-wrap: wrap;
-       		    justify-content: space-around;
+				flex-direction: row;
+				justify-content: center;
+				margin-left: 10px;
+				margin-right: 10px;
 			}
-
-			/*.nomB {
+			
+			
+			.nomB {
 				display: flex;
-				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 				text-align: center;
-				width: 100%;
+				width: 90%;
 				overflow: hidden;
 				text-overflow: ellipsis;
-				white-space: nowrap;
+				font-size: 16px;
+				font-style: italic;
+				font-weight: bold;
 				
-			}*/
-
-			/*.flexBouteille {
-				display: flex;
-				flex-wrap: wrap;
-				display: flex;
-				flex-wrap: wrap;
-				margin: 30px;
-				padding: 20px;
-				margin-left: 80px;
-				margin-right: 20px; 
-				}
-				*/
-				.flexBouteille .cardBouteille {
+			}
+			
+			.flexBouteille .cardBouteille {
 				flex: 1 0 calc(25% - 20px);
 				margin: 30px;
 				}
@@ -610,21 +616,7 @@ form label {  /* background-color: aqua;  */
 					justify-content: center;
 				}
 				
-				/*.description {
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-start;
-					/*text-align: left;*/
-					/*width: 100%;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					line-height:0.8;
-					padding: 10px;
-					}*/
-				/*.description p{
-					font-size: 13px;
-				}*/
+		
 		/*================== Icones Card Bouteille Privé et SAQ ==========================*/
 
 		.options{
@@ -632,12 +624,10 @@ form label {  /* background-color: aqua;  */
 			align-items: center;
 			justify-content:space-between;
 			margin-right: 60px;
-			/* width: 10px; */
+			
 		}
 		
-		.options div{
-		}
-
+	
 		.iconesCard {
 			display: flex;
 			align-items: center;
@@ -669,31 +659,6 @@ form label {  /* background-color: aqua;  */
          
 		  /*================== Card Bouteille Privé et SAQ ==========================*/
 
-		  .product {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			margin: 20px 0;
-		  }
-		  .product img {
-			width: 100px;
-			/* height: 50px; */
-			margin-right: 20px;
-		  }
-		  .product .details {
-			display: flex;
-			flex-direction: column;
-		  }
-	
-		  .uneBouteille{
-			border: black solid 1px;
-			border-radius: 5px;
-			width: 300px;
-		  }
-	
-		  .uneBouteille *{
-			margin: 5px;
-		}
 	
 		.flexInfoImgBouteille{
 			display: flex;

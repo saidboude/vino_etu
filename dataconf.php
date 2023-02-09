@@ -3,11 +3,11 @@
 
 
 
-	define("BASEURL", "http://localhost/vino_etu/");
+
 
 
 	//Local
-	define("BASEURL", "");
+	define("BASEURL", "http://localhost/vino_etu/");
 	define('HOST', 'localhost');
 	define('USER', 'root');
 	define('PASSWORD', '');
