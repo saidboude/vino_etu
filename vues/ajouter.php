@@ -5,7 +5,9 @@
 <div class="ajouter">
     <div class="form-style-8" style="padding-top: 50px;">
 
+
             <h2>Ajout d'une bouteille de la SAQ au cellier</h2>
+
     <div class="nouvelleBouteille" vertical layout>
         Recherche : <input type="text" name="nom_bouteille">
         <ul class="listeAutoComplete">
@@ -15,9 +17,9 @@
                 <span id="nom_bouteille" class="error-message"></span>    
                 <p>Nom : <span data-id="" class="nom_bouteille"></span></p>
                 <span id="millesime" class="error-message"></span>
-                <p>Millesime : <input name="millesime" ></p>
+                <p>Millesime : <input type="text" name="millesime" ></p>
                 <span id="quantite" class="error-message"></span>
-                <p>Quantite : <input name="quantite" value="1"></p>
+                <p>Quantite : <input type="text" name="quantite" value="1"></p>
                 <!-- <p>Notes sur 10: <input name="notes"></p> -->
                 <span id="date_achat" class="error-message"></span>
                 <p>Date achat : <input type="date" name="date_achat"></p>
@@ -31,10 +33,14 @@
                     ?>
             </select>
             </div>
-            <!--<button name="ajouterBouteilleCellier">Ajouter la bouteille</button>-->
-            <input type="button" name="ajouterBouteilleCellier" value="Ajouter la bouteille" />
+
+            <div data-id="<?php echo $cellier['id'] ?>">
+                <button name="ajouterBouteilleCellier">Ajouter la bouteille</button>
+            </div>
+
         </div>
     </div>
+</div>
 </div>
 <?php
 }else{

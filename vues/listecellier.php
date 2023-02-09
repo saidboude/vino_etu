@@ -1,5 +1,6 @@
 <div class="cellier">
 
+
 <div class="sectionIcone">
     <h1 class="titre"></h1>
         <div class="iconeCellier">
@@ -7,6 +8,7 @@
         </div>
     </div>
  
+
         <div class="flexCellier">
     <?php
     foreach ($data as $cle => $cellier) {
@@ -18,7 +20,7 @@
         <h3 class="nom"><?php echo $cellier['nom'] ?></h3>
         <div class="flexLieu">
             <img src="/vino_etu/img/location.png" alt="">
-            <p class="lieu"><?php echo $cellier['lieu'] ?></p>
+            <?php echo $cellier['lieu'] ?>
         </div>
        <!--  <div data-id="<?php echo $cellier['id'] ?>">
             <button class="cellierid button-28">Accéder a votre cellier</button>

@@ -10,21 +10,26 @@
      
                     <h3><a href="?requete=ajouterNouvelleBouteilleCellierPrive&id=<?= $datacell[0]['id']?>"><img src="/vino_etu/img/IconeBP.png"></a></h3>
 
+
                     <h3><a href="?requete=ajouterNouvelleBouteilleCellier&id=<?= $datacell[0]['id']?>"><img src="/vino_etu/img/IconeBS.png"></a></h3>      
+                    <form action="?requete=deletecellier" method="post" class="down">
+                    <input type="hidden" name="id"  value="<?php echo $datacell[0]['id'] ?>" />
+                    <input type="submit" class="button-28" value="Supprimer le cellier" />
+            </form>
                 </div>
         </div>
 <div class="flexCellier">
 <?php
 foreach ($dataprive as $cle => $bouteille) {    
     ?>
-
+    <!-- <div class="bouteille cardcellier"> -->
     <div class="flexBouteille">
-        <h2>Bouteille Privé</h2>
+    <h2><?php echo $bouteille['nom'] ?></h2>
+
         <div class="img"> 
           <img src="/vino_etu/img/bte.png">
         </div>
         <div class="description">
-            <p class="nom"><?php echo $bouteille['nom'] ?></p>
             <p class="quantite">Quantité : <?php echo $bouteille['quantite'] ?></p>
             <p class="pays">Pays : <?php echo $bouteille['pays'] ?></p>
             <p class="prix_achat">Prix : <?php echo $bouteille['prix_achat'] ?> $</p>
@@ -48,7 +53,7 @@ foreach ($dataprive as $cle => $bouteille) {
             <button class='btnAjouter'>Ajouter</button>
             <button class='btnBoire'>Boire</button>  
 
-            <form action="?requete=deleteprive&id=<?= $bouteille['nom'] ?>" method="post">
+            <form action="?requete=deleteprive&id=<?= $datacell[0]['id']?>" method="post">
                 <input type="hidden" name="id" value="<?php echo $bouteille['id'] ?>" />
                 <input type="submit" value="Supprimer" />
             </form>
@@ -64,6 +69,7 @@ foreach ($dataprive as $cle => $bouteille) {
     <?php
 foreach ($data as $cle => $bouteille) {    
     ?>
+
     <div class="cardBouteille">
         
         <p class="nomB"><?php echo $bouteille['nom'] ?></p>
@@ -116,6 +122,7 @@ foreach ($data as $cle => $bouteille) {
                     <input type="hidden" name="id" value="<?php echo $bouteille['id_bouteille'] ?>" />
                 </form>
             </div>
+
         </div>
     </div>
     </section>
@@ -127,6 +134,7 @@ foreach ($data as $cle => $bouteille) {
 <?php
 }else{
     echo '<h1>' . $succes. '</h1>';
-    echo '<h2>Vous avez supprimé une bouteille privé</h2>';    
+    echo '<h2>Vous avez supprimé une bouteille</h2>';    
+    echo '<div data-id=' . $datacell[0]['id'] .'><button class="cellierid button-28">Accéder a votre cellier</button></div>';   
 }
 ?>
