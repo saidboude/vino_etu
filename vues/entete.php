@@ -17,30 +17,27 @@
 	<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	<base href="<?php echo BASEURL; ?>">
 	<script src="./js/main.js"></script>
-	<!-- <script src="./js/plugins.js"></script> -->
-	<!--<script src="./js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
 </head>
 
 
 <body>
 	<header>
-		<!-- <h1>Cellier - <span class="vino">Vino</span>  - Cellar</h1>  -->
 
-<div>
-	
-	<div class="flexLogoMenu">
-	<?php
-		if ($_SESSION) {
-			echo'<div><a href="?requete=listecellier"><img src="/vino_etu/img/Logo-vino_blanc1.png" alt="logo" class="logo"></a></div>';
-		} else {
-			echo'<div><a href="?requete=login"><img src="/vino_etu/img/Logo-vino_blanc1.png" alt="logo" class="logo"></a></div>';
-		}
-		if ($_SESSION) {
-			echo 
-			'<div>
+		<div>
+
+			<div class="flexLogoMenu">
+				<?php
+				if ($_SESSION) {
+					echo '<div><a href="?requete=listecellier"><img src="/vino_etu/img/Logo-vino_blanc1.png" alt="logo" class="logo"></a></div>';
+				} else {
+					echo '<div><a href="?requete=login"><img src="/vino_etu/img/Logo-vino_blanc1.png" alt="logo" class="logo"></a></div>';
+				}
+				if ($_SESSION) {
+					echo
+					'<div>
 			<div class="dropdown">
 				<div class="flexUsaFle">	
-					<div><button class="dropbtn">Bienvenue ' . $_SESSION['usager'][0]['nom']. '</button></div>
+					<div><button class="dropbtn">Bienvenue ' . $_SESSION['usager'][0]['nom'] . '</button></div>
 					<div class="imgArrow">
 							<img src="/vino_etu/img/arrow-blanc.png">
 					</div>
@@ -53,13 +50,13 @@
 				</div>
 				</div>
 			</div>';
-		}
-		?>
+				}
+				?>
 
-	<?php
-		if(!$_SESSION) {
-			echo 
-			'<div class="flexConnCreer">
+				<?php
+				if (!$_SESSION) {
+					echo
+					'<div class="flexConnCreer">
 				<div class="btnConnexion"><a href="?requete=login">Se connecter</a></div>
 				<div class="imgCreer">
 					<a href="?requete=register">
@@ -67,14 +64,12 @@
 					</a>
 				</div>
 			</div>';
-		}
-	?>
+				}
+				?>
 
-</div>
-	
+			</div>
 
-</div>
+		</div>
 
-		
 	</header>
-<main>
+	<main>
