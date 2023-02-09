@@ -607,10 +607,45 @@ window.addEventListener('load', function () {
           } 
           document.getElementById(i).textContent = "";
         }          
-          console.log("ajouter");
-          return true;        
+        console.log("ajouter");
+        return true;        
       }
-    }    
+    } 
+    
+    /**Validation du login */
+   /*  if (currentRequete.includes("login") == true) {
+      console.log(window.location.search);
+      let formLogin = this.document.getElementById("login");
+      console.log(formLogin[2]);
+      formLogin[2].addEventListener("click", (e) => {
+        e.preventDefault();
+        let boolean = valLogin();
+        if (boolean) {
+          formLogin.submit();
+        }
+        
+      }); */
+
+      /**
+       * Methode de validation d'ajout cellier
+       * @returns boolean
+       * @author Yordan 
+       */
+     /*  function valLogin() {
+        let courrielRex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i,
+            mdpRex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        for (let i = 0; i < formLogin[2].length -1; i++) {
+          if (courrielRex.test(formLogin[i].value) == false && formLogin[i].name == "email" || mdpRex.test(formLogin[i].value) == false && formLogin[i].name == "mdp") {
+            document.getElementById("erreurLogin").textContent = "Combinaison courriel/mot de passe erronée";            
+            return false;            
+          }          
+        }
+        console.log("ajouter");
+        return true; 
+      }
+
+    } */
+
 
     // SAID ..
     /**
