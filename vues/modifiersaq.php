@@ -17,15 +17,16 @@
             <span id="garde_jusqua" class="error-message"></span>    
             <input type="date" name="garde_jusqua" value="<?= $data["garde_jusqua"] ?>" />
             Millesime:
-            <span id="millesime" class="error-message"></span>    
+            <p><span id="millesime" class="error-message"></span> </p>  
             <input type="text" name="millesime" value="<?= $data["millesime"] ?>" />
             Notez sur 10:
-            <span id="notes" class="error-message"></span>    
+            <p><span id="notes" class="error-message"></span></p>  
             <input type="text" name="notes" value="<?= $data["notes"] ?>" />
-    
+            
             <input type="hidden" name="id" value="<?= $data["id"] ?>">
-
+            <div data-id="<?php echo $cellier['id'] ?>">
             <button type="submit" class="modifierBouteillesaq top button-28">Modifier ma bouteille</button>
+            </div>
 
 
         </div>
