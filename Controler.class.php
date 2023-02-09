@@ -50,9 +50,9 @@ class Controler
 			case 'deconnexion':
 				$this->deconnexion();
 				break;
-		/* 	case 'cellier':
+			case 'cellier':
 				$this->cellier();
-				break; */
+				break;
 			case 'cellierid':
 				$this->cellierid($id);
 				break;
@@ -96,28 +96,20 @@ class Controler
 		}
 	}
 
-/**
- * Fonction qui affiche l'accueil
- */
+
 	private function accueil()
 	{
 		include("vues/entete.php");
 		include("vues/accueil.php");
 		include("vues/pied.php");
 	}
-/**
- * Fonction qui affiche le profil
- */
+
 	private function profil()
 	{
 		include("vues/entete.php");
 		include("vues/profil.php");
 		include("vues/pied.php");
 	}
-
-	/**
-	 * Fonction qui modifie le profile
-	 */
 	private function profilmod()
 	{
 		if (!empty($_POST)) {
@@ -132,9 +124,6 @@ class Controler
 		include("vues/pied.php");
 	}
 
-	/**
-	 * Fonction qui ajoute un usager
-	 */
 	private function register()
 	{
 		if (!empty($_POST)) {
@@ -148,9 +137,6 @@ class Controler
 		include("vues/pied.php");
 	}
 
-	/**
-	 * Fonction qui connecte l'usager
-	 */
 	private function login()
 	{
 		if (!empty($_POST)) {
@@ -163,6 +149,7 @@ class Controler
 			if (!$usager || !password_verify($mdp, $usager[0]['mdp'])) {
 
 				$erreur = "Combinaison courriel/mot de passe erronée";
+				var_dump($erreur);
 			}
 
 			if (!$erreur) {
@@ -175,9 +162,7 @@ class Controler
 		include("vues/login.php");
 		include("vues/pied.php");
 	}
-/**
- * Fonction qui déconnecte l'usager
- */
+
 	public function deconnexion()
 	{
 		unset($_SESSION['usager']);
@@ -185,27 +170,23 @@ class Controler
 		include("vues/accueil.php");
 		include("vues/pied.php");
 	}
-/**
- * Fonction qui affiche le cellier
- */
-/* 	private function cellier()
+
+	private function cellier()
 	{
 		if (!empty($_POST)) {
 
-			$id_cellier = $_POST['id'];
+			$id_cellier = $_POST['id']; // TROUVER COMMENT PASSER L'ID CELLIER
 			$cellier = new Cellier();
 			$datacell = $cellier->getCellier($id_cellier);
 			$bte = new Bouteille();
 			$data = $bte->getListeBouteilleSAQ($id_cellier);
 			$dataprive = $bte->getListeBouteillePrive($id_cellier);
 		}
+		//var_dump($data);
 		include("vues/entete.php");
 		include("vues/cellier.php");
 		include("vues/pied.php");
-	} */
-	/**
-	 * Fonction qui supprime une bouteille prive
-	 */
+	}
 	private function deleteprive()
 	{
 		if (!empty($_POST)) {
@@ -222,9 +203,7 @@ class Controler
 		include("vues/cellier.php");
 		include("vues/pied.php");
 	}
-/**
- * Fonction qui supprime une bouteille de la saq
- */
+
 	private function deleteSAQ()
 	{
 		if (!empty($_POST)) {
@@ -241,9 +220,7 @@ class Controler
 		include("vues/cellier.php");
 		include("vues/pied.php");
 	}
-/**
- * Fonction qui supprime le cellier et ces bouteilles
- */
+
 	private function deletecellier()
 	{
 		if (!empty($_POST)) {
@@ -256,9 +233,7 @@ class Controler
 			exit();
 		}
 	}
-/**
- * Fonction qui affiche les celliers
- */
+
 	private function listecellier()
 	{
 		$id_usager = $_SESSION['usager'][0]['id'];
@@ -269,9 +244,7 @@ class Controler
 		include("vues/listecellier.php");
 		include("vues/pied.php");
 	}
-/**
- * Fonction qui ajoute un cellier
- */
+
 	private function ajoutercellier()
 	{
 		if (!empty($_POST)) {
@@ -285,10 +258,6 @@ class Controler
 			include("vues/pied.php");
 		}
 	}
-
-	/**
-	 * Fonction qui ajoute une bouteille saq
-	 */
 	private function ajouterNouvelleBouteilleCellier()
 	{
 		$body = json_decode(file_get_contents('php://input'));
@@ -298,7 +267,7 @@ class Controler
 			$resultat = $bte->ajouterBouteilleCellier($body);
 			echo json_encode($resultat);
 		} else {
-			$cellier = new Cellier();
+			 $cellier = new Cellier();
 			$id_usager = $_SESSION['usager'][0]['id'];
 			$data = $cellier->getListeCelliers($id_usager);
 			include("vues/entete.php");
@@ -306,10 +275,6 @@ class Controler
 			include("vues/pied.php");
 		}
 	}
-
-	/**
-	 * Fonction qui ajoute une bouteille prive
-	 */
 	private function ajouterNouvelleBouteilleCellierPrive()
 	{
 		if (!empty($_POST)) {
@@ -342,9 +307,6 @@ class Controler
 		echo json_encode($cellier);
 	} */
 
-	/**
-	 * Fonction qui autocomplete la recherche du nom de la bouteille saq
-	 */
 	private function autocompleteBouteille()
 	{
 		$bte = new Bouteille();
@@ -354,9 +316,7 @@ class Controler
 		$listeBouteille = $bte->autocomplete($body->nom);
 		echo json_encode($listeBouteille);
 	}
-/**
- * Fonction qui diminue la quantitée de bouteille prive
- */
+
 	private function boireBouteilleCellier()
 	{
 		$body = json_decode(file_get_contents('php://input'));
@@ -365,10 +325,6 @@ class Controler
 		$resultat = $bte->modifierQuantiteBouteilleCellier($body->id, -1);
 		echo json_encode($resultat);
 	}
-
-	/**
-	 * Fonction qui augmente la quantitée de bouteille prive
-	 */
 	private function ajouterBouteilleCellier()
 	{
 		$body = json_decode(file_get_contents('php://input'));
@@ -377,9 +333,6 @@ class Controler
 		$resultat = $bte->modifierQuantiteBouteilleCellier($body->id, 1);
 		echo json_encode($resultat);
 	}
-	/**
- * Fonction qui diminue la quantitée de bouteille saq
- */
 	private function boireBouteilleCellierSAQ()
 	{
 		$body = json_decode(file_get_contents('php://input'));
@@ -388,9 +341,6 @@ class Controler
 		$resultat = $bte->modifierQuantiteBouteilleCellierSAQ($body->id, -1);
 		echo json_encode($resultat);
 	}
-	/**
-	 * Fonction qui augmente la quantitée de bouteille saq
-	 */
 	private function ajouterBouteilleCellierSAQ()
 	{
 		$body = json_decode(file_get_contents('php://input'));
@@ -400,9 +350,7 @@ class Controler
 		echo json_encode($resultat);
 	}
 
-/**
- * Fonction qui affiche le formulaire modifier bouteille prive
- */
+	///yordan
 	private function getBouteille($id)
 	{
 		$bte = new Bouteille();
@@ -416,10 +364,6 @@ class Controler
 		include("vues/modifier.php");
 		include("vues/pied.php");
 	}
-
-	/**
- * Fonction qui affiche le formulaire modifier bouteille saq
- */
 	private function getBouteillesaq($id)
 	{
 		$bte = new Bouteille();
@@ -433,13 +377,9 @@ class Controler
 		include("vues/modifiersaq.php");
 		include("vues/pied.php");
 	}
-
-/**
- * Fonction qui affiche le cellier
- */
 	private function cellierid($id)
 	{
-		$id_cellier = $_GET['id'];
+		$id_cellier = $_GET['id']; 
 		$cellier = new Cellier();
 		$datacell = $cellier->getCellier($id_cellier);
 		$bte = new Bouteille();
@@ -450,9 +390,7 @@ class Controler
 		include("vues/cellier.php");
 		include("vues/pied.php");
 	}
-/**
- * Fonction qui modifie une bouteille prive
- */
+	
 	private function modifierBouteilleCellier()
 	{
 		$body = json_decode(file_get_contents('php://input'));
@@ -460,7 +398,7 @@ class Controler
 			$bte = new Bouteille();
 			$resultat = $bte->modifierBouteilleCellier($body);
 			echo json_encode($resultat);
-			header("Location: " . BASEURL . "?requete=listecellier");
+			header("Location: ". BASEURL . "?requete=listecellier");
 			exit();
 		} else {
 			include("vues/entete.php");
@@ -468,9 +406,7 @@ class Controler
 			include("vues/pied.php");
 		}
 	}
-/**
- * Fonction qui modifie une bouteille saq
- */
+	
 	private function modifierBouteilleCelliersaq()
 	{
 		$body = json_decode(file_get_contents('php://input'));
@@ -478,7 +414,7 @@ class Controler
 			$bte = new Bouteille();
 			$resultat = $bte->modifierBouteilleCelliersaq($body);
 			echo json_encode($resultat);
-			header("Location: " . BASEURL . "?requete=listecellier");
+			header("Location: ". BASEURL . "?requete=listecellier");
 			exit();
 		} else {
 			include("vues/entete.php");
